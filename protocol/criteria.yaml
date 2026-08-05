@@ -1,0 +1,76 @@
+# Criterion definitions. Fixed before collection.
+# Every criterion is a positive ratio quantity with a stated meaningful zero, because EDAS
+# normalizes against the average solution and a constructed interval score would leave that
+# normalization without a defensible origin. All six share an annual horizon so that no
+# criterion silently carries a different time base.
+
+version: 1
+horizon: annual
+
+criteria:
+  - code: C1
+    name: Annualized total cost of ownership
+    direction: cost
+    unit: thousand EUR per year
+    meaningful_zero: no cost incurred
+    definition: >
+      Licence, infrastructure, integration and support cost attributable to the platform,
+      expressed per year over the registered evaluation horizon.
+  - code: C2
+    name: Expected annual productivity benefit
+    direction: benefit
+    unit: thousand person-hours per year
+    meaningful_zero: no time saved
+    definition: >
+      Expected working time released across the user population per year, relative to the
+      current process.
+  - code: C3
+    name: Integration effort to production readiness
+    direction: cost
+    unit: person-days
+    meaningful_zero: no integration effort
+    definition: >
+      Engineering effort from contract signature to a production deployment that meets the
+      registered acceptance criteria.
+  - code: C4
+    name: Expected annual data-exposure and compliance loss
+    direction: cost
+    unit: thousand EUR per year, probability weighted
+    meaningful_zero: no expected loss
+    definition: >
+      Probability-weighted monetized loss from data exposure and compliance failure over one
+      year.
+  - code: C5
+    name: Sustained throughput at the target latency ceiling
+    direction: benefit
+    unit: thousand requests per hour
+    meaningful_zero: no throughput
+    definition: >
+      Requests per hour the platform sustains without exceeding the registered latency
+      ceiling.
+  - code: C6
+    name: Onboarding time to user proficiency
+    direction: cost
+    unit: hours per user
+    meaningful_zero: immediate proficiency
+    definition: >
+      Training and practice time a typical user needs to reach the registered proficiency
+      standard.
+
+# Fixed canonical order of the fifteen unordered pairs. Used unchanged in every completion.
+pair_order:
+  - C1_C2
+  - C3_C5
+  - C2_C4
+  - C1_C6
+  - C4_C5
+  - C2_C3
+  - C1_C4
+  - C5_C6
+  - C3_C4
+  - C2_C6
+  - C1_C5
+  - C4_C6
+  - C2_C5
+  - C1_C3
+  - C3_C6

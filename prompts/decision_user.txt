@@ -1,0 +1,28 @@
+FIXED PERSONA CARD
+{CARD_JSON}
+
+DECISION CASE
+A mid-size enterprise is selecting one generative-AI assistant platform for
+organization-wide knowledge work. Four candidate platforms are described below. The
+description is complete: nothing outside this prompt is relevant.
+
+CRITERIA IN FIXED ORDER
+{CRITERIA_BLOCK}
+
+PERFORMANCE MATRIX
+{MATRIX_BLOCK}
+
+FIFTEEN UNIQUE PAIRS IN FIXED ORDER
+{PAIR_BLOCK}
+
+For every pair:
+1. choose the criterion that matters more for this persona in this specific decision case;
+2. if they matter equally, set preferred to NEUTRAL and intensity to equal;
+3. otherwise choose one intensity from moderate, strong, very_strong or extreme;
+4. give one short outcome-focused reason of at most 25 words.
+
+After all fifteen comparisons, return exactly three distinct criterion codes in
+declared_priority_order, from most to least important.
+
+Do not rank the platforms. Do not return numerical weights. Do not describe your reasoning
+process. Return JSON only, matching the supplied schema.

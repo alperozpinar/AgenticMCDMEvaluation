@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+title: >-
+  AgenticMCDMEvaluation: protocol and computation layer for separating persona-card,
+  model-service and MCDM method effects
+message: If you use this material, please cite the archived release.
+type: software
+authors:
+  - family-names: Ozpinar
+    given-names: Alper
+    affiliation: Ibn Haldun University, School of Business
+    email: alper.ozpinar@ihu.edu.tr
+  - family-names: Samasti
+    given-names: Mesut
+    affiliation: TUBITAK Tusside
+  - family-names: Cakmak
+    given-names: Emre
+    affiliation: Istinye University, Faculty of Engineering and Natural Sciences
+license: MIT
+repository-code: https://github.com/alperozpinar/AgenticMCDMEvaluation
+version: 0.1.0
+date-released: "2026-08-05"

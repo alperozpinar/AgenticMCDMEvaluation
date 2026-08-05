@@ -1,0 +1,45 @@
+{
+  "draws": 200000,
+  "seed": 20260805,
+  "alternatives": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "criteria": [
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6"
+  ],
+  "winner_share_edas": {
+    "A": 0.170785,
+    "B": 0.066225,
+    "C": 0.241275,
+    "D": 0.521715
+  },
+  "winner_share_topsis": {
+    "A": 0.14734,
+    "B": 0.095055,
+    "C": 0.249345,
+    "D": 0.50826
+  },
+  "procedure_disagreement_share": 0.10169,
+  "distinct_winners": 4,
+  "dominance_pairs": [],
+  "acceptance_rules": {
+    "min_distinct_winners": 3,
+    "max_winner_share": 0.8,
+    "min_procedure_disagreement": 0.05
+  },
+  "checks": {
+    "at_least_three_alternatives_win": true,
+    "no_alternative_above_80_percent": true,
+    "procedure_disagreement_at_least_5_percent": true,
+    "no_dominance_among_alternatives": true
+  },
+  "accepted": true
+}

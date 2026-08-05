@@ -1,0 +1,41 @@
+# Binary admissibility checklist for a generated persona card.
+# Every item is pass or fail. Cards are never scored for quality and never compared to each
+# other, because selecting the better-looking card would make the generator factor a
+# researcher choice rather than a model property.
+
+version: 1
+
+acceptance_rule: >
+  Accept the first card that passes every item. One structural repair that preserves
+  semantic content is allowed. Candidate shopping and manual semantic editing are
+  prohibited.
+
+failure_rule: >
+  A card that fails any item voids that generator's whole set of three. The generation
+  prompt is versioned and the generator produces all three again, once. A second failure
+  removes the generator from the study and the exclusion is reported with the item that
+  caused it.
+
+checks:
+  - id: K1
+    text: All schema fields are present and within their length limits.
+  - id: K2
+    text: The role field matches the requested role.
+  - id: K3
+    text: No age, gender, ethnicity, nationality or political attribute appears.
+  - id: K4
+    text: No real organization, product or vendor name appears.
+  - id: K5
+    text: No numerical weight or percentage attached to any criterion.
+  - id: K6
+    text: No explicit ordering of the six decision criteria.
+  - id: K7
+    text: No veto and no hard threshold, only graded trade-offs.
+  - id: K8
+    text: No factual claim beyond the registered case.
+  - id: K9
+    text: No claim that every person in the occupation shares the stated preferences.
+  - id: K10
+    text: No internally contradictory trade-off instruction.
+  - id: K11
+    text: No self-reference to the model that wrote the card, by name or by description.

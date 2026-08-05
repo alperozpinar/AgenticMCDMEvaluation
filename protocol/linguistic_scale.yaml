@@ -1,0 +1,24 @@
+# Fixed researcher mapping from semantic intensity labels to the odd Saaty values.
+# The respondent sees labels only and never these numbers. Code applies the mapping,
+# sets the unit diagonal and constructs reciprocal entries.
+
+version: 1
+
+scale:
+  equal: 1
+  moderate: 3
+  strong: 5
+  very_strong: 7
+  extreme: 9
+
+rules:
+  - The respondent returns one label per pair, never a number.
+  - For the label `equal`, `preferred` must be NEUTRAL; a directional value is a schema error.
+  - Reciprocals are constructed as 1/x in code and are never requested from the model.
+  - The mapping does not change after any output is visible.
+
+numerical:
+  tie_tolerance: 1.0e-10       # appraisal scores within this are treated as tied
+  weight_sum_tolerance: 1.0e-12
+  reciprocal_tolerance: 1.0e-12
+  random_index_6: 1.24         # source recorded in PROTOCOL.md; used only for CR

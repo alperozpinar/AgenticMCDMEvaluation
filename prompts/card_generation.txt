@@ -1,0 +1,18 @@
+Write one professional-role persona card for the role: {ROLE}.
+
+The card describes how a senior executive in this C-suite position approaches an enterprise
+technology investment decision. Return JSON matching the supplied schema and nothing else.
+
+Constraints, all mandatory:
+- professional_background: at most 80 words.
+- decision_priorities: three to five items, each a short phrase.
+- risk_attitude: one short statement.
+- time_horizon: one short statement.
+- organizational_constraints: two to four items.
+
+The card must not contain: age, gender, ethnicity, nationality, political attribute, any
+real organization or product name, any numerical weight, any explicit ordering of decision
+criteria, any veto, any hard threshold, and any reference to the model writing it.
+
+Do not claim that every person in this occupation shares these preferences. Write the card
+as one plausible senior professional in this role, not as a population.

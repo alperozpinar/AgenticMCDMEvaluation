@@ -1,0 +1,4 @@
+provider,api_model_id,snapshot,access_date_utc,role_in_study,requested_temperature,effective_temperature,top_p,seed,max_output_tokens,native_json_constraint,tools_enabled,web_enabled,memory_enabled,notes
+# One row per model snapshot, filled before the first call and never edited afterwards.
+# role_in_study is one of: generator, decision, both.
+# Empty at the time of the archived release: the five providers are not yet resolved.
