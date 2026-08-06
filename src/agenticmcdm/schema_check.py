@@ -1,5 +1,10 @@
 """Response validation, written as the protocol states it rather than as generic JSON Schema.
 
+The respondent returns three keys and no more. `persona_id` and `repetition` are attached by
+the harness from the scheduled slot, not requested from the model: the repetition index is a
+collection-round label, and putting it in the prompt would make the request differ between
+the repetitions of a cell, which the protocol forbids.
+
 The schema files under `schemas/` are the published contract. This module is the executable
 form of the same rules, so a failure reports which protocol rule broke instead of a generic
 path error. Validation is strict: a response either satisfies every rule or it is a
@@ -43,8 +48,7 @@ def check_decision(payload: object, expected_pairs: list[str]) -> Result:
     if not isinstance(payload, dict):
         return Result(False, ["E_TYPE: response is not a JSON object"])
 
-    allowed = {"schema_version", "persona_id", "repetition", "criterion_comparisons",
-               "declared_priority_order"}
+    allowed = {"schema_version", "criterion_comparisons", "declared_priority_order"}
     extra = set(payload) - allowed
     if extra:
         errors.append(f"E_EXTRA_FIELD: unexpected field(s) {sorted(extra)}")
@@ -55,14 +59,6 @@ def check_decision(payload: object, expected_pairs: list[str]) -> Result:
 
     if payload["schema_version"] != SCHEMA_VERSION:
         errors.append(f"E_VERSION: schema_version is {payload['schema_version']!r}")
-
-    pid = payload["persona_id"]
-    if not (isinstance(pid, str) and re.fullmatch(r"P-(CFO|CIO|COO)-[1-5]", pid)):
-        errors.append(f"E_PERSONA_ID: persona_id {pid!r} is malformed")
-
-    rep = payload["repetition"]
-    if not (isinstance(rep, int) and 1 <= rep <= 5):
-        errors.append(f"E_REPETITION: repetition {rep!r} is not an integer in 1..5")
 
     comparisons = payload["criterion_comparisons"]
     if not isinstance(comparisons, list):

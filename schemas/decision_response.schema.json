@@ -3,11 +3,15 @@
   "title": "Structured decision response",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "persona_id", "repetition", "criterion_comparisons", "declared_priority_order"],
+  "required": [
+    "schema_version",
+    "criterion_comparisons",
+    "declared_priority_order"
+  ],
   "properties": {
-    "schema_version": { "const": "structured_v1_icaira" },
-    "persona_id": { "type": "string", "pattern": "^P-(CFO|CIO|COO)-[1-5]$" },
-    "repetition": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "schema_version": {
+      "const": "structured_v1_icaira"
+    },
     "criterion_comparisons": {
       "type": "array",
       "minItems": 15,
@@ -15,14 +19,63 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["pair_id", "criterion_a", "criterion_b", "preferred", "intensity", "reason"],
+        "required": [
+          "pair_id",
+          "criterion_a",
+          "criterion_b",
+          "preferred",
+          "intensity",
+          "reason"
+        ],
         "properties": {
-          "pair_id": { "type": "string", "pattern": "^C[1-6]_C[1-6]$" },
-          "criterion_a": { "enum": ["C1", "C2", "C3", "C4", "C5", "C6"] },
-          "criterion_b": { "enum": ["C1", "C2", "C3", "C4", "C5", "C6"] },
-          "preferred": { "enum": ["C1", "C2", "C3", "C4", "C5", "C6", "NEUTRAL"] },
-          "intensity": { "enum": ["equal", "moderate", "strong", "very_strong", "extreme"] },
-          "reason": { "type": "string", "maxLength": 220 }
+          "pair_id": {
+            "type": "string",
+            "pattern": "^C[1-6]_C[1-6]$"
+          },
+          "criterion_a": {
+            "enum": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6"
+            ]
+          },
+          "criterion_b": {
+            "enum": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6"
+            ]
+          },
+          "preferred": {
+            "enum": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "NEUTRAL"
+            ]
+          },
+          "intensity": {
+            "enum": [
+              "equal",
+              "moderate",
+              "strong",
+              "very_strong",
+              "extreme"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 220
+          }
         }
       }
     },
@@ -31,7 +84,17 @@
       "minItems": 3,
       "maxItems": 3,
       "uniqueItems": true,
-      "items": { "enum": ["C1", "C2", "C3", "C4", "C5", "C6"] }
+      "items": {
+        "enum": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6"
+        ]
+      }
     }
-  }
+  },
+  "description": "Model output only. persona_id and repetition are attached by the harness from the scheduled slot and are never requested from the model."
 }

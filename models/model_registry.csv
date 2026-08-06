@@ -1,4 +1,9 @@
-provider,api_model_id,snapshot,access_date_utc,role_in_study,requested_temperature,effective_temperature,top_p,seed,max_output_tokens,native_json_constraint,tools_enabled,web_enabled,memory_enabled,notes
+provider,adapter,api_model_id,snapshot,base_url,key_env,role_in_study,access_date_utc,requested_temperature,top_p,seed,max_output_tokens,native_json_constraint,tools_enabled,web_enabled,memory_enabled,notes
 # One row per model snapshot, filled before the first call and never edited afterwards.
-# role_in_study is one of: generator, decision, both.
-# Empty at the time of the archived release: the five providers are not yet resolved.
+# Keys are NEVER stored here. key_env names the environment variable holding the key.
+# Empty decoding columns mean the provider default is used, which is what the protocol requires.
+anthropic,anthropic,claude-opus-5,,,ANTHROPIC_API_KEY,both,2026-08-06,,,,16000,false,false,false,false,Thinking is on by default on this snapshot; max_output_tokens covers thinking plus response. Sampling parameters are rejected by the API.
+openai,openai_compatible,gpt-5.6-sol,,https://api.openai.com/v1,OPENAI_API_KEY,both,2026-08-06,,,,,false,false,false,false,Resolves the ChatGPT SOL reference from the source handoff.
+google,google,,,https://generativelanguage.googleapis.com/v1beta,GOOGLE_API_KEY,both,,,,,,false,false,false,false,BLOCKED: every generateContent call returns 429 quota exceeded on this key. Auth and model listing work; the account has no usable request quota. Fill api_model_id after billing is enabled.
+moonshot,openai_compatible,kimi-k3,,https://api.moonshot.ai/v1,MOONSHOT_API_KEY,both,2026-08-06,,,,,false,false,false,false,Endpoint is api.moonshot.ai; api.moonshot.cn rejects this key.
+xai,openai_compatible,grok-4.5,,https://api.x.ai/v1,XAI_API_KEY,both,2026-08-06,,,,,false,false,false,false,Credits added 2026-08-06; frontier snapshot on this account.

@@ -24,8 +24,6 @@ def good_response(**overrides):
     ]
     payload = {
         "schema_version": "structured_v1_icaira",
-        "persona_id": "P-CFO-3",
-        "repetition": 1,
         "criterion_comparisons": comparisons,
         "declared_priority_order": ["C1", "C4", "C2"],
     }
@@ -108,8 +106,9 @@ def test_ranking_of_alternatives_is_rejected_as_an_extra_field():
     assert "E_EXTRA_FIELD" in check_decision(r, PAIRS).codes
 
 
-def test_malformed_persona_id_is_rejected():
-    assert "E_PERSONA_ID" in check_decision(good_response(persona_id="CFO-3"), PAIRS).codes
+def test_persona_id_from_the_model_is_rejected_as_an_extra_field():
+    """The harness attaches persona_id; a model that volunteers it broke the contract."""
+    assert "E_EXTRA_FIELD" in check_decision(good_response(persona_id="P-CFO-3"), PAIRS).codes
 
 
 # ------------------------------------------------------------------ cards

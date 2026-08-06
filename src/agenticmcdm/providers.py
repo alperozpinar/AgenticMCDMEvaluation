@@ -67,6 +67,11 @@ def _post(url: str, headers: dict[str, str], body: dict, timeout: int) -> tuple[
         raise TransportError(f"transport failure calling {url}: {exc}") from exc
 
 
+def _setting(settings: dict, name: str, default: str) -> str:
+    """Read a registry setting, treating an empty CSV cell as absent rather than as a value."""
+    return (settings.get(name) or "").strip() or default
+
+
 def _key(env_name: str) -> str:
     value = os.environ.get(env_name, "").strip()
     if not value:
@@ -81,8 +86,11 @@ def _decoding(settings: dict) -> dict:
     out = {}
     for key in ("temperature", "top_p", "seed", "max_output_tokens"):
         value = settings.get(key)
-        if value not in (None, ""):
-            out[key] = value
+        if value in (None, ""):
+            continue
+        if isinstance(value, str):
+            value = float(value) if "." in value else int(value)
+        out[key] = value
     return out
 
 
@@ -90,7 +98,7 @@ def call_openai_compatible(
     model: str, system: str, user: str, settings: dict, timeout: int = DEFAULT_TIMEOUT
 ) -> Reply:
     """OpenAI-style chat completions. Also serves xAI, Moonshot and other compatible hosts."""
-    base = settings.get("base_url", "https://api.openai.com/v1").rstrip("/")
+    base = _setting(settings, "base_url", "https://api.openai.com/v1").rstrip("/")
     body = {
         "model": model,
         "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
@@ -102,7 +110,7 @@ def call_openai_compatible(
 
     raw, latency, headers = _post(
         f"{base}/chat/completions",
-        {"Authorization": f"Bearer {_key(settings['key_env'])}",
+        {"Authorization": f"Bearer {_key(_setting(settings, "key_env", ""))}",
          "Content-Type": "application/json"},
         body, timeout,
     )
@@ -132,9 +140,9 @@ def call_anthropic(
     body.update({k: v for k, v in decoding.items() if k in ("temperature", "top_p")})
 
     raw, latency, headers = _post(
-        settings.get("base_url", "https://api.anthropic.com/v1").rstrip("/") + "/messages",
+        _setting(settings, "base_url", "https://api.anthropic.com/v1").rstrip("/") + "/messages",
         {"x-api-key": _key(settings["key_env"]),
-         "anthropic-version": settings.get("api_version", "2023-06-01"),
+         "anthropic-version": _setting(settings, "api_version", "2023-06-01"),
          "Content-Type": "application/json"},
         body, timeout,
     )
@@ -154,8 +162,8 @@ def call_google(
     model: str, system: str, user: str, settings: dict, timeout: int = DEFAULT_TIMEOUT
 ) -> Reply:
     """Google generateContent endpoint."""
-    base = settings.get(
-        "base_url", "https://generativelanguage.googleapis.com/v1beta"
+    base = _setting(
+        settings, "base_url", "https://generativelanguage.googleapis.com/v1beta"
     ).rstrip("/")
     body: dict = {
         "systemInstruction": {"parts": [{"text": system}]},
@@ -202,6 +210,7 @@ ADAPTERS = {
 
 def call(adapter: str, model: str, system: str, user: str, settings: dict) -> Reply:
     """Dispatch to the adapter named in the registry row."""
+    adapter = (adapter or "").strip() or "openai_compatible"
     if adapter not in ADAPTERS:
         raise TransportError(f"unknown adapter {adapter!r}; known: {sorted(ADAPTERS)}")
     return ADAPTERS[adapter](model, system, user, settings)

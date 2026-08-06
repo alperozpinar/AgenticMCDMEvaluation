@@ -209,7 +209,7 @@ def run_slot(slot: dict, model_row: dict, case: dict, card_json: str, dry_run: b
         "execution_position": slot["execution_position"],
         "phase": "decision",
         "provider": model_row["provider"],
-        "adapter": model_row.get("adapter", "openai_compatible"),
+        "adapter": model_row.get("adapter") or "openai_compatible",
         "api_model_id": model_row["api_model_id"],
         "snapshot": model_row.get("snapshot", ""),
         "card_id": slot["card_id"],

@@ -24,5 +24,26 @@ For every pair:
 After all fifteen comparisons, return exactly three distinct criterion codes in
 declared_priority_order, from most to least important.
 
-Do not rank the platforms. Do not return numerical weights. Do not describe your reasoning
-process. Return JSON only, matching the supplied schema.
+OUTPUT CONTRACT
+Return one JSON object and nothing else. No prose before or after it, no code fence.
+It has exactly three top-level keys, spelled exactly as shown:
+
+{
+  "schema_version": "structured_v1_icaira",
+  "criterion_comparisons": [
+    {
+      "pair_id": "<the pair id from the list above, for example C1_C2>",
+      "criterion_a": "<the first criterion code in that pair>",
+      "criterion_b": "<the second criterion code in that pair>",
+      "preferred": "<the criterion code you prefer, copied from this pair's own two codes; NEUTRAL only when intensity is equal>",
+      "intensity": "<equal | moderate | strong | very_strong | extreme>",
+      "reason": "<at most 25 words>"
+    }
+  ],
+  "declared_priority_order": ["<code>", "<code>", "<code>"]
+}
+
+The angle-bracket text marks where your judgment goes; it is not a suggested answer.
+`criterion_comparisons` holds exactly fifteen objects, one per listed pair, in the listed
+order. Do not add, rename or omit a key. Do not rank the platforms, do not return numerical
+weights, and do not describe your reasoning process anywhere outside the `reason` fields.

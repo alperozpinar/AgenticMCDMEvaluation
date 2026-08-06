@@ -7,9 +7,26 @@ model call.
 
 ### 1. Fill the model registry
 
-`models/model_registry.csv` holds headers only. The harness reads it and refuses to build a
-schedule while it is empty. One row per service, and `adapter` decides which request shape
-is used.
+Done for four of five services on 2026-08-06: `anthropic`, `openai`, `moonshot` and `xai`
+carry resolved identifiers and access dates. The `google` row is still blocked and its
+`api_model_id` is empty, so it must be either filled or removed before the schedule is built.
+
+Google returns HTTP 429 on every `generateContent` call with
+`generate_content_free_tier_requests, limit: 0`. Authentication and model listing both work,
+so this is an account state and not a code fault: the project behind the key has no
+billing account, and the free tier grants it no requests. Two ways out, and they are not
+equivalent. Attach a billing account to the project, which needs no code change and keeps the
+service factor at five levels. Or drop Google, record it here and in `DEVIATIONS.md`, and
+carry a four-level service factor through the analysis.
+
+If billing is enabled, the snapshot still has to be chosen and the choice is not free. The
+account sees no stable pro-class model in the current generation: `gemini-3.1-pro-preview` is
+pro class but a preview, `gemini-3.6-flash` is stable but a smaller class than the other four
+services, and `gemini-2.5-pro` is stable pro but a generation behind. Class parity with the
+other four argues for the preview, in which case the preview status belongs in the registry
+notes and in the manuscript limitations, because a preview snapshot can move under the study.
+
+The table below describes a row. `adapter` decides which request shape is used.
 
 | column | what goes in it |
 |---|---|
@@ -27,13 +44,20 @@ nothing writes one to the ledger.
 
 ### 2. Smoke test each provider
 
+Done on 2026-08-06 for the four reachable services. `python -m agenticmcdm.smoke ping`
+passes 4/4 and `python -m agenticmcdm.smoke decision` passes 4/4: each service returns
+fifteen comparisons over the fixed pair order, on the declared intensity scale, inside the
+reason length limit and with no extra fields. Google is untested for the reason in item 1.
+Smoke output is discarded and does not enter the study.
+
+Both failures the smoke test caught were in the prompt rather than in any service. The
+prompt asked for JSON matching a schema it never supplied, and its placeholder for
+`preferred` named the two fields instead of showing that a criterion code goes there. Rerun
+both modes after any edit to `prompts/` or `schemas/`.
+
 ```bash
 python -m agenticmcdm.harness collect --round 1 --dry-run   # renders, hashes, calls nothing
 ```
-
-Then one real call per provider. The adapters in `providers.py` were written against the
-public APIs as understood at the time; endpoints and response shapes change, so confirm each
-one parses before spending the collection budget. Smoke output does not enter the study.
 
 ### 3. Generate and freeze the fifteen cards
 
