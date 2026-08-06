@@ -33,8 +33,18 @@ import json
 import pathlib
 import random
 import re
+import time
 
 from agenticmcdm import providers, schema_check
+
+
+class ConfigurationFault(RuntimeError):
+    """A fault that every remaining slot in the round would hit in the same way.
+
+    A wrong key, a model identifier the account cannot reach, a malformed request. The round
+    stops rather than spending its remaining slots proving the same point 74 more times.
+    Slots already recorded stay recorded; the round is resumed after the cause is fixed.
+    """
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 PROTOCOL = ROOT / "protocol"
@@ -178,6 +188,31 @@ def append_ledger(row: dict) -> None:
         writer.writerow(row)
 
 
+def completed_run_ids() -> set[str]:
+    """Slots that must not be called again, read back from the ledger.
+
+    A slot is finished once it produced model output, and it is finished just as surely once
+    its one permitted retry has been spent, whatever that retry returned. Calling either
+    again would put a third physical request against a slot the protocol allows two.
+
+    A slot whose only record is a failed first attempt is not finished. That is exactly what
+    an aborted round leaves behind, and it is meant to be picked up once the cause is fixed.
+    """
+    path = DATA / "ledger.csv"
+    if not path.exists():
+        return set()
+    done: set[str] = set()
+    with path.open(newline="") as handle:
+        for row in csv.DictReader(handle):
+            if row.get("attempt_type") not in ("initial", "transport_retry"):
+                continue
+            if row.get("transport_status") == "success":
+                done.add(row["run_id"])
+            elif row.get("attempt_type") == "transport_retry":
+                done.add(row["run_id"])
+    return done
+
+
 def store_raw(attempt_id: str, raw: bytes) -> str:
     path = DATA / "raw" / f"{attempt_id}.json"
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -240,11 +275,21 @@ def run_slot(slot: dict, model_row: dict, case: dict, card_json: str, dry_run: b
             reply = providers.call(base["adapter"], model_row["api_model_id"],
                                    system, user, settings)
         except providers.TransportError as exc:
+            status = f"transport_error_{exc.status}" if exc.status else "transport_error"
             append_ledger({**base, "attempt_id": attempt_id, "attempt_type": attempt_type,
-                           "requested_at_utc": _now(), "transport_status": "transport_error",
+                           "requested_at_utc": _now(), "transport_status": status,
                            "validation_status": "", "schema_error_codes": str(exc)[:200]})
+            if not providers.is_retryable(exc):
+                raise ConfigurationFault(
+                    f"{model_row['provider']} rejected the request with HTTP {exc.status}. "
+                    f"Sending it again would not change that, and the remaining slots in "
+                    f"this round would fail the same way.\n{exc}"
+                ) from exc
             if attempts == 2:
                 return {"status": "transport_failed", **base}
+            delay = providers.retry_delay(exc)
+            print(f"  {slot['run_id']}: {status}, retrying once in {delay:.0f}s")
+            time.sleep(delay)
 
     attempt_type = "initial" if attempts == 1 else "transport_retry"
     attempt_id = f"{slot['run_id']}_{attempt_type}"
@@ -315,15 +360,28 @@ def cmd_collect(args: argparse.Namespace) -> None:
         r for r in csv.DictReader(schedule.open())
         if int(r["collection_round"]) == args.round
     ]
-    print(f"round {args.round}: {len(slots)} slot(s)")
     counts: dict[str, int] = {}
-    for slot in sorted(slots, key=lambda r: int(r["execution_position"])):
-        card_path = cards_dir / f"{slot['card_id']}.json"
-        if not card_path.exists():
-            raise SystemExit(f"frozen card missing: {card_path}")
-        outcome = run_slot(slot, registry[slot["provider"]], case,
-                           card_path.read_text().strip(), args.dry_run)
-        counts[outcome["status"]] = counts.get(outcome["status"], 0) + 1
+    ordered = sorted(slots, key=lambda r: int(r["execution_position"]))
+    if not args.dry_run:
+        done = completed_run_ids()
+        ordered = [r for r in ordered if r["run_id"] not in done]
+    print(f"round {args.round}: {len(ordered)} slot(s) to run "
+          f"out of {len(slots)} scheduled")
+    try:
+        for slot in ordered:
+            card_path = cards_dir / f"{slot['card_id']}.json"
+            if not card_path.exists():
+                raise SystemExit(f"frozen card missing: {card_path}")
+            outcome = run_slot(slot, registry[slot["provider"]], case,
+                               card_path.read_text().strip(), args.dry_run)
+            counts[outcome["status"]] = counts.get(outcome["status"], 0) + 1
+    except ConfigurationFault as exc:
+        done = sum(counts.values())
+        print("outcomes so far:", json.dumps(counts, indent=2))
+        raise SystemExit(
+            f"round {args.round} stopped after {done} of {len(ordered)} slot(s).\n{exc}\n"
+            f"Fix the cause and rerun this round; recorded slots are in the ledger."
+        ) from exc
     print("outcomes:", json.dumps(counts, indent=2))
 
 

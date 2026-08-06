@@ -53,6 +53,35 @@ The cost is that a preview snapshot can change during collection. The access dat
 recorded, and if the snapshot is observed to change mid-collection that is a deviation to be
 logged here and the affected cells recollected.
 
+## 2026-08-06, retry refined and rounds made resumable
+
+Section 3 says a transport failure with no model output is retried once in the same slot and
+both physical requests are kept. The retry count is unchanged. Three refinements sit under
+it, all made before any scheduled call, so no collected data is affected.
+
+A wait now separates the two attempts, and it uses the provider's own Retry-After when one
+was sent, capped at 120 seconds. Retrying a rate limit in the same instant reproduces it.
+
+The retry is no longer issued when the provider's status describes the request rather than
+the moment. A 400, 401, 403 or 404 means the request as constructed is not acceptable, and
+sending it again cannot change that. This narrows "retried once" to the transient failures
+the rule was written for; a rejected request is now recorded and the round stops. Stopping is
+new and it is protective: without it a wrong key spends 75 slots proving the same point.
+
+Because a round can now stop partway, it has to be resumable without recalling what it
+already recorded. A slot is skipped on a rerun once it has produced model output, or once its
+one permitted retry has been spent. A slot whose only record is a single failed first attempt
+is not skipped, since that is exactly what an aborted round leaves behind.
+
+Client-side rate limiting was considered and not implemented. Quota is managed on the API
+subscriptions, and a second throttle here would only interact with the first unpredictably.
+
+Concurrency was also considered and rejected on protocol grounds rather than effort. Section
+3 randomises the execution order within a round, interleaves providers across it, and records
+each call's position so a time effect can be examined afterwards. Concurrent execution would
+collapse the realised order into a few moments and void all three. At the measured call rates
+a round takes about 47 minutes, comfortably inside the hour that separates rounds.
+
 ## Open before the first call
 
 - Domain review of the criterion definitions, units and values is outstanding.

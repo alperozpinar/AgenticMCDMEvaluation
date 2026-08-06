@@ -48,9 +48,11 @@ over the fixed pair order, on the declared intensity scale, inside the reason le
 and with no extra fields. Smoke output is discarded and does not enter the study.
 
 Measured decision-call wall times were 17.8, 21.3, 22.5, 89.5 and 37.2 seconds, averaging
-37.7. Moonshot is the outlier by a wide margin. At that average a serial 375-call collection
-runs close to four hours, which is worth knowing before item 6 in the gaps list is addressed,
-since backoff and retries only add to it.
+37.7. Moonshot is the outlier by a wide margin. A round is 75 slots, so at that average a
+round runs about 47 minutes and the five rounds total near four hours of wall time. That
+total is not a problem to solve: `PROTOCOL.md` section 3 already spaces the rounds at least
+an hour apart and spans the collection over at least two calendar days, so the four hours
+were always going to be spread across days rather than spent in one sitting.
 
 Both failures the smoke test caught were in the prompt rather than in any service. The
 prompt asked for JSON matching a schema it never supplied, and its placeholder for
@@ -107,9 +109,15 @@ E-over-D event is a software fault, an A to D inversion is procedure sensitivity
 
 ## Known gaps in what exists
 
-- `providers.py` has no rate limiting and no backoff. Add both before running 375 calls.
-- The harness runs a round serially. That is deliberate for now, since interleaving providers
-  matters more than speed, but a long round will take a while.
+- Client-side rate limiting is deliberately absent. Quota is managed on the API subscriptions
+  themselves, and a throttle here would only duplicate that badly. What is present is the
+  wait before the one permitted retry, which honours the provider's own Retry-After.
+- The harness runs a round serially, and this is a design requirement rather than an
+  unfinished optimisation. `PROTOCOL.md` section 3 randomises the execution order inside a
+  round, interleaves providers across it, and records each call's position so a time effect
+  can be examined afterwards. Running slots concurrently would collapse the realised order
+  into a handful of moments and take all three of those properties with it. A round is about
+  47 minutes at the measured rates, which is well inside the hour that separates rounds.
 - The admissibility checklist is a human pass or fail and is not automated. Items such as
   "no claim that every person in the occupation shares these preferences" need a reader.
 - No published numerical example has been reproduced for RGM-AHP, EDAS or TOPSIS. The tests

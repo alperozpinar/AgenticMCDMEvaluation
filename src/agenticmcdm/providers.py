@@ -24,6 +24,8 @@ the response parses before spending the collection budget.
 
 from __future__ import annotations
 
+import datetime as dt
+import email.utils
 import json
 import os
 import time
@@ -33,9 +35,70 @@ from dataclasses import dataclass
 
 DEFAULT_TIMEOUT = 180
 
+RETRY_BASE_SECONDS = 5.0
+RETRY_CAP_SECONDS = 120.0
+
+# Statuses that describe the moment rather than the request, so a second attempt can succeed.
+RETRYABLE_STATUS = {408, 409, 425, 429, 500, 502, 503, 504}
+
 
 class TransportError(RuntimeError):
-    """No model output was produced. Retryable once inside the same scheduled slot."""
+    """No model output was produced. Retryable once inside the same scheduled slot.
+
+    `status` is the HTTP status when the provider answered with one, and None when the
+    failure happened below HTTP: a timeout, a refused connection, a name that did not
+    resolve. `retry_after` carries the provider's own Retry-After value in seconds when it
+    sent one, which is a better wait than anything guessed here.
+    """
+
+    def __init__(self, message: str, *, status: int | None = None,
+                 retry_after: float | None = None) -> None:
+        super().__init__(message)
+        self.status = status
+        self.retry_after = retry_after
+
+
+def is_retryable(error: TransportError) -> bool:
+    """Whether sending the same request again could plausibly produce a different outcome.
+
+    A failure below HTTP is a timeout or a broken connection and deserves the one retry the
+    protocol allows. An HTTP status is retryable when it describes the moment: a rate limit,
+    an overloaded backend, a gateway fault. A 400 or a 401 describes the request itself, and
+    repeating it changes nothing except the bill.
+    """
+    if error.status is None:
+        return True
+    return error.status in RETRYABLE_STATUS
+
+
+def retry_delay(error: TransportError, base: float = RETRY_BASE_SECONDS,
+                cap: float = RETRY_CAP_SECONDS) -> float:
+    """Seconds to wait before the single permitted retry.
+
+    The provider's own Retry-After wins when it sent one, because it knows when its rate
+    window reopens and we do not. It is still capped, so a provider asking for an hour stops
+    the round rather than silently stalling it.
+    """
+    if error.retry_after is not None:
+        return max(0.0, min(error.retry_after, cap))
+    return min(base, cap)
+
+
+def _retry_after_seconds(headers) -> float | None:
+    """Read Retry-After, which the HTTP spec allows to be either seconds or a date."""
+    raw = (headers or {}).get("Retry-After")
+    if not raw:
+        return None
+    raw = str(raw).strip()
+    if raw.isdigit():
+        return float(raw)
+    try:
+        when = email.utils.parsedate_to_datetime(raw)
+    except (TypeError, ValueError):
+        return None
+    if when.tzinfo is None:
+        when = when.replace(tzinfo=dt.timezone.utc)
+    return max(0.0, (when - dt.datetime.now(dt.timezone.utc)).total_seconds())
 
 
 @dataclass
@@ -62,7 +125,11 @@ def _post(url: str, headers: dict[str, str], body: dict, timeout: int) -> tuple[
             return raw, int((time.monotonic() - started) * 1000), dict(response.headers)
     except urllib.error.HTTPError as exc:
         detail = exc.read()[:500].decode("utf-8", "replace")
-        raise TransportError(f"HTTP {exc.code} from {url}: {detail}") from exc
+        raise TransportError(
+            f"HTTP {exc.code} from {url}: {detail}",
+            status=exc.code,
+            retry_after=_retry_after_seconds(exc.headers),
+        ) from exc
     except (urllib.error.URLError, TimeoutError, OSError) as exc:
         raise TransportError(f"transport failure calling {url}: {exc}") from exc
 
