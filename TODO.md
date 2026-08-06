@@ -7,24 +7,22 @@ model call.
 
 ### 1. Fill the model registry
 
-Done for four of five services on 2026-08-06: `anthropic`, `openai`, `moonshot` and `xai`
-carry resolved identifiers and access dates. The `google` row is still blocked and its
-`api_model_id` is empty, so it must be either filled or removed before the schedule is built.
+Done for all five services on 2026-08-06. Each row carries a resolved identifier and an
+access date: `claude-opus-5`, `gpt-5.6-sol`, `gemini-3.1-pro-preview`, `kimi-k3`, `grok-4.5`.
 
-Google returns HTTP 429 on every `generateContent` call with
-`generate_content_free_tier_requests, limit: 0`. Authentication and model listing both work,
-so this is an account state and not a code fault: the project behind the key has no
-billing account, and the free tier grants it no requests. Two ways out, and they are not
-equivalent. Attach a billing account to the project, which needs no code change and keeps the
-service factor at five levels. Or drop Google, record it here and in `DEVIATIONS.md`, and
-carry a four-level service factor through the analysis.
+Google was blocked until billing was attached to the project behind the key. Every
+`generateContent` call returned HTTP 429 with
+`generate_content_free_tier_requests, limit: 0` while authentication and model listing both
+worked, which is an account state rather than a code fault. It answers normally now.
 
-If billing is enabled, the snapshot still has to be chosen and the choice is not free. The
-account sees no stable pro-class model in the current generation: `gemini-3.1-pro-preview` is
-pro class but a preview, `gemini-3.6-flash` is stable but a smaller class than the other four
-services, and `gemini-2.5-pro` is stable pro but a generation behind. Class parity with the
-other four argues for the preview, in which case the preview status belongs in the registry
-notes and in the manuscript limitations, because a preview snapshot can move under the study.
+One choice there is worth revisiting before the pilot. The account exposes no stable
+pro-class model in the current generation, and `gemini-2.5-pro` is closed to new users, so
+the alternatives were `gemini-3.1-pro-preview`, pro class but a preview, and
+`gemini-3.6-flash`, stable but a smaller class than the other four services. Class parity
+won, which buys a comparison between five frontier-class services and pays for it with a
+snapshot that can move under the study. The preview status is recorded in the registry notes
+and belongs in the manuscript limitations. Switching to `gemini-3.6-flash` is a one-cell edit
+if snapshot stability is judged the more important of the two.
 
 The table below describes a row. `adapter` decides which request shape is used.
 
@@ -44,11 +42,15 @@ nothing writes one to the ledger.
 
 ### 2. Smoke test each provider
 
-Done on 2026-08-06 for the four reachable services. `python -m agenticmcdm.smoke ping`
-passes 4/4 and `python -m agenticmcdm.smoke decision` passes 4/4: each service returns
-fifteen comparisons over the fixed pair order, on the declared intensity scale, inside the
-reason length limit and with no extra fields. Google is untested for the reason in item 1.
-Smoke output is discarded and does not enter the study.
+Done on 2026-08-06 for all five services. `python -m agenticmcdm.smoke ping` passes 5/5 and
+`python -m agenticmcdm.smoke decision` passes 5/5: each service returns fifteen comparisons
+over the fixed pair order, on the declared intensity scale, inside the reason length limit
+and with no extra fields. Smoke output is discarded and does not enter the study.
+
+Measured decision-call wall times were 17.8, 21.3, 22.5, 89.5 and 37.2 seconds, averaging
+37.7. Moonshot is the outlier by a wide margin. At that average a serial 375-call collection
+runs close to four hours, which is worth knowing before item 6 in the gaps list is addressed,
+since backoff and retries only add to it.
 
 Both failures the smoke test caught were in the prompt rather than in any service. The
 prompt asked for JSON matching a schema it never supplied, and its placeholder for

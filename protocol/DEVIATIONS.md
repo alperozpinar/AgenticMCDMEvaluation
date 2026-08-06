@@ -38,9 +38,22 @@ angle-bracket placeholders that describe where a judgment goes and carry no exam
 for `preferred`, `intensity` or `reason`, so the format is pinned without anchoring the
 answer.
 
+## 2026-08-06, model registry fixed at five services
+
+All five rows in `models/model_registry.csv` are filled and dated: `claude-opus-5`,
+`gpt-5.6-sol`, `gemini-3.1-pro-preview`, `kimi-k3` and `grok-4.5`. Both smoke modes pass 5/5.
+No scheduled call has been made, so nothing is affected.
+
+The Google snapshot is a preview and this is a known weakness rather than an oversight. The
+account exposes no stable pro-class model in the current generation and `gemini-2.5-pro` is
+closed to new users, so the choice was between a preview at the same class as the other four
+services and a stable model one class below them. Class parity was preferred, because a
+service factor whose levels differ in class confounds the comparison the study is built on.
+The cost is that a preview snapshot can change during collection. The access date is
+recorded, and if the snapshot is observed to change mid-collection that is a deviation to be
+logged here and the affected cells recollected.
+
 ## Open before the first call
 
-- The five providers and their exact API model identifiers are not yet resolved, so
-  `models/model_registry.csv` carries headers only.
 - Domain review of the criterion definitions, units and values is outstanding.
 - The archived release and its versioned DOI have not been created.
