@@ -121,8 +121,18 @@ def check_decision(payload: object, expected_pairs: list[str]) -> Result:
     return Result(not errors, errors)
 
 
-def check_card(payload: object, role: str) -> Result:
-    """Validate one generated persona card against the card schema.
+CARD_WRITTEN_FIELDS = {"role", "professional_background", "decision_priorities",
+                       "risk_attitude", "time_horizon", "organizational_constraints"}
+
+
+def check_card(payload: object, role: str, *, expect_persona_id: bool = True) -> Result:
+    """Validate one persona card against the card schema.
+
+    Two shapes are valid at two different moments. A generator returns the six fields it
+    writes and no identifier, because the neutral within-role index is drawn at random after
+    every card has passed, and a card that named itself would be choosing its own label. Pass
+    `expect_persona_id=False` for that shape. The frozen card carries the assigned
+    `persona_id` as well, and that is the shape a decision respondent is shown.
 
     Structural rules only. The domain admissibility checklist in
     `protocol/card_admissibility_checklist.yaml` is a human pass or fail and is recorded
@@ -133,8 +143,9 @@ def check_card(payload: object, role: str) -> Result:
     if not isinstance(payload, dict):
         return Result(False, ["E_TYPE: card is not a JSON object"])
 
-    allowed = {"persona_id", "role", "professional_background", "decision_priorities",
-               "risk_attitude", "time_horizon", "organizational_constraints"}
+    allowed = set(CARD_WRITTEN_FIELDS)
+    if expect_persona_id:
+        allowed.add("persona_id")
     if set(payload) != allowed:
         errors.append(f"E_CARD_FIELDS: card has fields {sorted(payload)}")
         return Result(False, errors)

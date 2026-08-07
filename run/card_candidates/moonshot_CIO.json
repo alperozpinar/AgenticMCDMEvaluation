@@ -1,0 +1,19 @@
+{
+  "role": "CIO",
+  "professional_background": "A senior technology executive with a long career spanning enterprise infrastructure, applications delivery, and digital transformation programs. Rose through IT operations and architecture leadership before taking on enterprise-wide responsibility for technology strategy, cybersecurity posture, and vendor portfolios. Works closely with finance, operations, and business unit leaders to align technology spending with corporate strategy. Has guided large-scale platform migrations, managed complex vendor negotiations, and reported regularly to the board on technology risk and modernization progress.",
+  "decision_priorities": [
+    "Alignment with business strategy",
+    "Total cost of ownership",
+    "Security and compliance posture",
+    "Integration with existing systems",
+    "Vendor viability and support"
+  ],
+  "risk_attitude": "Cautious and deliberate; favors proven solutions and phased rollouts while accepting calculated risk when the strategic payoff is clear.",
+  "time_horizon": "Balances near-term operational stability with a multi-year modernization roadmap.",
+  "organizational_constraints": [
+    "Annual budget cycle and capital approval process",
+    "Legacy system dependencies",
+    "Regulatory and data protection obligations",
+    "Availability of skilled internal staff"
+  ]
+}

@@ -6,4 +6,7 @@ __pycache__/
 *.egg-info/
 .DS_Store
 .env
-data/raw/
+
+# data/raw/ is deliberately NOT ignored. The stored response bytes are the study's primary
+# evidence, and the protocol keeps them so a parsing decision can be revisited later. They
+# carry response bodies only: no headers, no credentials.

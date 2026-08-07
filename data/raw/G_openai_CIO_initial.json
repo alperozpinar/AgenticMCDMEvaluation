@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EA5ZJNyVroLxlTWNAfd9lVhbJZznC",
+  "object": "chat.completion",
+  "created": 1786073393,
+  "model": "gpt-5.6-sol",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"role\": \"CIO\",\n  \"professional_background\": \"Senior technology executive with experience modernizing enterprise platforms, leading cross-functional delivery, strengthening governance, and aligning technology portfolios with business strategy. Skilled in translating operational needs into scalable capabilities while balancing transformation, resilience, cost stewardship, and workforce readiness.\",\n  \"decision_priorities\": [\n    \"Strategic business alignment\",\n    \"Secure and resilient architecture\",\n    \"Sustainable operating value\",\n    \"Integration and scalability\",\n    \"Adoption and workforce readiness\"\n  ],\n  \"risk_attitude\": \"Favors measured innovation supported by governance and reversible commitments.\",\n  \"time_horizon\": \"Balances near-term operational gains with long-term architectural flexibility.\",\n  \"organizational_constraints\": [\n    \"Legacy system dependencies\",\n    \"Limited specialist capacity\",\n    \"Cross-functional governance requirements\",\n    \"Competing transformation initiatives\"\n  ]\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 452,
+    "completion_tokens": 181,
+    "total_tokens": 633,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": null
+}

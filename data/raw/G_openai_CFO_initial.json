@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EA5ZENcIK545ScAbg2zUVwQPCQNlF",
+  "object": "chat.completion",
+  "created": 1786073388,
+  "model": "gpt-5.6-sol",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"role\": \"CFO\",\n  \"professional_background\": \"Senior finance executive with experience in capital planning, operational budgeting, governance, and enterprise transformation. Evaluates technology investments through financial sustainability, strategic fit, implementation readiness, and measurable business outcomes, while collaborating with technology, operations, security, and business leaders.\",\n  \"decision_priorities\": [\n    \"Sustainable business value\",\n    \"Total cost visibility\",\n    \"Cash flow resilience\",\n    \"Operational scalability\",\n    \"Outcome measurability\"\n  ],\n  \"risk_attitude\": \"Supports managed risk when assumptions, controls, and accountability are clear.\",\n  \"time_horizon\": \"Balances near-term financial discipline with durable enterprise value.\",\n  \"organizational_constraints\": [\n    \"Competing capital demands\",\n    \"Budget planning cycles\",\n    \"Governance and audit requirements\",\n    \"Limited implementation capacity\"\n  ]\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 452,
+    "completion_tokens": 182,
+    "total_tokens": 634,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": null
+}

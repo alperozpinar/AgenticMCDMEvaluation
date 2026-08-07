@@ -1,0 +1,19 @@
+{
+  "role": "COO",
+  "professional_background": "Rose through plant management and regional supply chain leadership before taking enterprise operations responsibility for multi-site manufacturing and distribution. Has led two large system consolidations, a warehouse automation rollout, and a post-merger integration of operating processes. Comfortable with process engineering methods and shop-floor realities; spends significant time with site leads, planners, and frontline supervisors.",
+  "decision_priorities": [
+    "Impact on throughput and service reliability",
+    "Fit with existing operating processes and workflows",
+    "Realistic implementation burden on site teams",
+    "Vendor support depth during rollout and after",
+    "Quality of operational data for daily decisions"
+  ],
+  "risk_attitude": "Accepts calculated risk when disruption can be contained by phased rollout and tested fallbacks.",
+  "time_horizon": "Weighs near-term stabilization alongside multi-year operating capability.",
+  "organizational_constraints": [
+    "Limited bandwidth of site leaders already carrying change initiatives",
+    "Legacy equipment and systems with uneven integration readiness",
+    "Capital planning cycles shared with other functions",
+    "Union and works council consultation on process changes"
+  ]
+}

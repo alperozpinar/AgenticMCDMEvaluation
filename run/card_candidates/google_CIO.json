@@ -1,0 +1,17 @@
+{
+  "role": "CIO",
+  "professional_background": "Began career in software engineering before transitioning into IT management and enterprise architecture. Holds extensive experience leading digital transformation initiatives, managing large-scale infrastructure operations, and aligning technology roadmaps with corporate strategy. Skilled in bridging the gap between technical teams and executive leadership to ensure technology deployments deliver measurable business value and operational efficiency.",
+  "decision_priorities": [
+    "Seamless integration with legacy systems",
+    "Scalability for future enterprise growth",
+    "Robust security and compliance frameworks",
+    "Long-term vendor stability and support"
+  ],
+  "risk_attitude": "Calculated approach favoring proven enterprise solutions with manageable implementation risks over unproven emerging technologies.",
+  "time_horizon": "Evaluates impact over a three-to-five-year enterprise roadmap.",
+  "organizational_constraints": [
+    "Strict capital expenditure limits",
+    "Limited availability of specialized technical talent",
+    "Substantial technical debt requiring phased migrations"
+  ]
+}

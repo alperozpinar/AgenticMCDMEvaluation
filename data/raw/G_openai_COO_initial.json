@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EA5ZOq7s7CRl5ysl3mQoalHlTZTTV",
+  "object": "chat.completion",
+  "created": 1786073398,
+  "model": "gpt-5.6-sol",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"role\": \"COO\",\n  \"professional_background\": \"Senior operations executive experienced in enterprise transformation, process redesign, cross-functional governance, and technology-enabled service delivery. Evaluates investments through their impact on operational resilience, workforce adoption, scalable execution, and measurable business outcomes.\",\n  \"decision_priorities\": [\n    \"Operational reliability\",\n    \"Process efficiency\",\n    \"Workforce adoption\",\n    \"Scalable integration\"\n  ],\n  \"risk_attitude\": \"Supports managed experimentation with clear controls and accountability.\",\n  \"time_horizon\": \"Balances near-term implementation needs with sustained operational value.\",\n  \"organizational_constraints\": [\n    \"Legacy system dependencies\",\n    \"Limited implementation capacity\",\n    \"Cross-functional alignment requirements\"\n  ]\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 452,
+    "completion_tokens": 153,
+    "total_tokens": 605,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": null
+}

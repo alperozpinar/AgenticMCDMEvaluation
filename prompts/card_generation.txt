@@ -1,7 +1,7 @@
 Write one professional-role persona card for the role: {ROLE}.
 
 The card describes how a senior executive in this C-suite position approaches an enterprise
-technology investment decision. Return JSON matching the supplied schema and nothing else.
+technology investment decision.
 
 Constraints, all mandatory:
 - professional_background: at most 80 words.
@@ -16,3 +16,21 @@ criteria, any veto, any hard threshold, and any reference to the model writing i
 
 Do not claim that every person in this occupation shares these preferences. Write the card
 as one plausible senior professional in this role, not as a population.
+
+OUTPUT CONTRACT
+Return one JSON object and nothing else. No prose before or after it, no code fence.
+It has exactly six top-level keys, spelled exactly as shown:
+
+{
+  "role": "{ROLE}",
+  "professional_background": "<at most 80 words>",
+  "decision_priorities": ["<short phrase>", "<short phrase>", "<short phrase>"],
+  "risk_attitude": "<one short statement>",
+  "time_horizon": "<one short statement>",
+  "organizational_constraints": ["<short phrase>", "<short phrase>"]
+}
+
+The angle-bracket text marks where your writing goes; it is not a suggested answer.
+`decision_priorities` holds three to five items and `organizational_constraints` holds two
+to four. Do not add, rename or omit a key. Do not add an identifier of any kind: the card is
+labelled after it is written, and not by its writer.
