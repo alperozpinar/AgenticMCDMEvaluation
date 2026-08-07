@@ -1,19 +1,20 @@
 # Admissibility worksheet. Every cell must read exactly `pass` before cards can be frozen.
-# K1, K2 and K11 were filled by the harness. K3 to K10 need a reader; see protocol/card_admissibility_checklist.yaml.
-# A `fail` on any item voids that generator's whole set of three.
+# K1, K2 and K11 were filled by the harness from the card text.
+# K3 to K10 recorded by the operator on 2026-08-06 against checklist version 2.
+# K6, K7 and K8 were ruled under the version 2 wordings; see protocol/DEVIATIONS.md.
 candidate,generator,role,K1,K2,K3,K4,K5,K6,K7,K8,K9,K10,K11
-anthropic_CFO.json,anthropic,CFO,pass,pass,,,,,,,,,pass
-anthropic_CIO.json,anthropic,CIO,pass,pass,,,,,,,,,pass
-anthropic_COO.json,anthropic,COO,pass,pass,,,,,,,,,pass
-google_CFO.json,google,CFO,pass,pass,,,,,,,,,pass
-google_CIO.json,google,CIO,pass,pass,,,,,,,,,pass
-google_COO.json,google,COO,pass,pass,,,,,,,,,pass
-moonshot_CFO.json,moonshot,CFO,pass,pass,,,,,,,,,pass
-moonshot_CIO.json,moonshot,CIO,pass,pass,,,,,,,,,pass
-moonshot_COO.json,moonshot,COO,pass,pass,,,,,,,,,pass
-openai_CFO.json,openai,CFO,pass,pass,,,,,,,,,pass
-openai_CIO.json,openai,CIO,pass,pass,,,,,,,,,pass
-openai_COO.json,openai,COO,pass,pass,,,,,,,,,pass
-xai_CFO.json,xai,CFO,pass,pass,,,,,,,,,pass
-xai_CIO.json,xai,CIO,pass,pass,,,,,,,,,pass
-xai_COO.json,xai,COO,pass,pass,,,,,,,,,pass
+anthropic_CFO.json,anthropic,CFO,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass
+anthropic_CIO.json,anthropic,CIO,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass
+anthropic_COO.json,anthropic,COO,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass
+google_CFO.json,google,CFO,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass
+google_CIO.json,google,CIO,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass
+google_COO.json,google,COO,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass
+moonshot_CFO.json,moonshot,CFO,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass
+moonshot_CIO.json,moonshot,CIO,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass
+moonshot_COO.json,moonshot,COO,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass
+openai_CFO.json,openai,CFO,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass
+openai_CIO.json,openai,CIO,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass
+openai_COO.json,openai,COO,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass
+xai_CFO.json,xai,CFO,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass
+xai_CIO.json,xai,CIO,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass
+xai_COO.json,xai,COO,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass,pass

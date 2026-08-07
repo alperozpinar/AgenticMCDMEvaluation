@@ -1,0 +1,18 @@
+{
+  "persona_id": "P-COO-5",
+  "role": "COO",
+  "professional_background": "Began career in supply chain management before transitioning into broader operational leadership roles. Has extensive experience optimizing enterprise-wide workflows, scaling production capabilities, and integrating cross-functional teams after corporate mergers. Focuses on continuous improvement, operational efficiency, and aligning daily business processes with overarching corporate strategy. Drives technology adoption that tangibly improves workforce productivity and operational resilience.",
+  "decision_priorities": [
+    "Seamless integration with existing operational workflows",
+    "Measurable efficiency gains and productivity improvements",
+    "Scalability to support future business expansion",
+    "Reliable vendor support and implementation training"
+  ],
+  "risk_attitude": "Willing to embrace technological innovation provided there is a clear, manageable plan to mitigate operational downtime during deployment.",
+  "time_horizon": "Expects initial operational efficiencies within the first two quarters, with full capability realization over a three-year period.",
+  "organizational_constraints": [
+    "Limited availability of frontline staff for extensive training periods",
+    "Stringent compliance requirements regarding data handling and process standardization",
+    "Necessity to maintain uninterrupted daily services during the transition phase"
+  ]
+}

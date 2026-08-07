@@ -3,7 +3,13 @@
 # other, because selecting the better-looking card would make the generator factor a
 # researcher choice rather than a model property.
 
-version: 1
+version: 2
+
+# Version 2 states what K6, K7 and K8 mean. Version 1 left each of them open to a reading
+# under which no card satisfying the frozen card schema could ever be admissible, which
+# cannot have been the intent. The wordings below are derived from that schema rather than
+# from any card. The clarification was written after the first fifteen cards existed and is
+# recorded as a deviation, not as a correction. See DEVIATIONS.md, 2026-08-06.
 
 acceptance_rule: >
   Accept the first card that passes every item. One structural repair that preserves
@@ -28,11 +34,25 @@ checks:
   - id: K5
     text: No numerical weight or percentage attached to any criterion.
   - id: K6
-    text: No explicit ordering of the six decision criteria.
+    text: >
+      No explicit ordering of the six registered criteria, meaning no list that ranks them
+      by their codes or by their registered names. A priority list written in the persona's
+      own vocabulary is admissible: the card schema requires decision_priorities as an
+      ordered array of three to five items, so a card without one cannot exist, and
+      estimand E5 exists to measure how declared priorities relate to computed weights.
   - id: K7
-    text: No veto and no hard threshold, only graded trade-offs.
+    text: >
+      No veto and no hard threshold, only graded trade-offs. The operative test is whether
+      a statement would remove an alternative in the registered matrix from consideration.
+      A constraint that shapes how a rollout proceeds without excluding any alternative is
+      admissible, since organizational_constraints is a required field.
   - id: K8
-    text: No factual claim beyond the registered case.
+    text: >
+      No factual claim about the alternatives, the criterion values or the market that the
+      registered case does not state. Organizational context is admissible and unavoidable:
+      the registered case describes the platforms, not the buyer, while the card schema
+      requires organizational_constraints, so every conforming card adds context the case
+      omits.
   - id: K9
     text: No claim that every person in the occupation shares the stated preferences.
   - id: K10

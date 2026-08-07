@@ -82,6 +82,69 @@ each call's position so a time effect can be examined afterwards. Concurrent exe
 collapse the realised order into a few moments and void all three. At the measured call rates
 a round takes about 47 minutes, comfortably inside the hour that separates rounds.
 
+## 2026-08-06, checklist items K6, K7 and K8 given operative wordings
+
+The fifteen card-generation calls were made and all fifteen candidates were structurally
+valid. Two of them, Anthropic's CFO and COO cards, used the one structural repair the
+checklist allows: the first attempt carried an extra `professional_background_note` field.
+Both physical requests are kept.
+
+Reading the candidates against the checklist showed that three items were worded so loosely
+that each admitted a reading under which no card conforming to the frozen card schema could
+ever pass. K6 forbade an explicit ordering of the six criteria while the schema requires
+`decision_priorities` as an ordered array. K8 forbade factual claims beyond the registered
+case while the schema requires `organizational_constraints`, and the registered case
+describes the four platforms rather than the buying organization, so every conforming card
+adds context the case omits. K7 named hard thresholds without saying what makes a statement
+one.
+
+Checklist version 2 states the operative wording for all three. K6 now names the six
+registered criteria by code or registered name as what may not be ordered. K7 applies the
+test of whether a statement would remove an alternative in the registered matrix from
+consideration. K8 restricts the prohibition to claims about the alternatives, the criterion
+values or the market.
+
+This clarification was written after the cards existed and is recorded as a deviation rather
+than as a correction, which is the honest label. Two things bear on how much weight it
+should carry. Each wording is derived from the card schema, which was frozen before any
+generation call, rather than from what the cards turned out to say. And the alternative did
+not avoid the problem: regenerating the cards under a stricter reading would still have meant
+choosing the reading after seeing model output.
+
+Under version 2 all fifteen candidates pass every item, and the recorded verdicts are in
+`run/card_admissibility.csv`.
+
+## 2026-08-06, cards frozen and a pre-collection descriptive added
+
+The fifteen cards are frozen in `protocol/cards/`. The within-role indices were drawn at
+freeze time from seed 20260806 and the generator-to-index mapping is in
+`protocol/cards/_assignment.csv`. That file never enters a prompt.
+
+A descriptive was added that was not in the original protocol: the lexical overlap between
+the frozen cards, in `results/card_similarity.json`. It gates nothing and no decision
+depends on it. It is reported because the persona-card factor can only move a ranking if the
+cards differ, and a reader who sees a small E2 is entitled to know what the cards looked like
+before any decision call was made. Adding it before collection rather than after is the
+point: it cannot be chosen later to suit a result.
+
+Because each generator writes one card per role, every card pair sits in one of three cells.
+Same role and different generator averages 0.179 Jaccard overlap over 30 pairs. Different
+role and same generator averages 0.183 over 15 pairs. Different role and different generator
+averages 0.118 over 60 pairs. Role and writer therefore lift overlap above the floor by
+almost the same amount, 1.51 against 1.55, and the two most similar pairs in the whole set
+are cards of different roles written by the same generator.
+
+Two consequences are worth stating before collection rather than after. The persona-card
+factor has real material to work with, since same-role cards share less than a fifth of
+their vocabulary. And a generator's wording is about as recognisable as the role it
+describes, which is a reason to expect the section 8 manipulation check to score above
+chance. The protocol already refuses to conclude that blinding succeeded; this is a
+quantitative reason to keep that refusal.
+
+The measure is lexical rather than semantic, so it bounds one direction only: high overlap
+would show similar wording, while low overlap leaves open that two cards express the same
+priorities in different words.
+
 ## Open before the first call
 
 - Domain review of the criterion definitions, units and values is outstanding.

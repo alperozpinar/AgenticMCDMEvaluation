@@ -1,0 +1,19 @@
+# Which generator wrote which card, needed for the self-authored contrast and for scoring the blinding check.
+# This file is never placed in any prompt. Decision respondents see the card JSON and nothing else.
+# Index assignment seed: 20260806
+persona_id,role,generator,card_hash
+P-CFO-1,CFO,anthropic,9a73e65dc6a484f0
+P-CFO-2,CFO,moonshot,52d406e2d25ded1b
+P-CFO-3,CFO,openai,c0da40e78f359d92
+P-CFO-4,CFO,xai,4fbbd032d6b9957c
+P-CFO-5,CFO,google,329cbe6709fe6a35
+P-CIO-1,CIO,moonshot,f3152846e1f2101f
+P-CIO-2,CIO,openai,4b5c6ad34c025074
+P-CIO-3,CIO,google,f3a8ccb651ef26fd
+P-CIO-4,CIO,xai,35519d9f084cf174
+P-CIO-5,CIO,anthropic,eace6b68d4a6dbe5
+P-COO-1,COO,anthropic,babfcfc8db2e36c2
+P-COO-2,COO,xai,7d05a71275c4eb0d
+P-COO-3,COO,openai,ad3c7cb2d81c53f7
+P-COO-4,COO,moonshot,b3a92f9e5e316511
+P-COO-5,COO,google,bdf1a4d6609d2b87

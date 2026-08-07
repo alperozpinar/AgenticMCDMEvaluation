@@ -1,0 +1,20 @@
+{
+  "persona_id": "P-CIO-4",
+  "role": "CIO",
+  "professional_background": "Seasoned technology executive with extensive experience leading IT strategy, digital transformation initiatives, and enterprise architecture across multiple industries. Has overseen large-scale system implementations, cloud migrations, and cybersecurity programs while aligning technology investments with business objectives and operational efficiency.",
+  "decision_priorities": [
+    "strategic business alignment",
+    "long-term scalability",
+    "cybersecurity resilience",
+    "total cost of ownership",
+    "integration with existing systems"
+  ],
+  "risk_attitude": "Balances innovation with careful evaluation of potential operational and security exposures.",
+  "time_horizon": "Focuses on multi-year value realization while addressing near-term operational needs.",
+  "organizational_constraints": [
+    "budget approval cycles",
+    "legacy system dependencies",
+    "cross-functional stakeholder alignment",
+    "regulatory compliance requirements"
+  ]
+}

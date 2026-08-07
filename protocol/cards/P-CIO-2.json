@@ -1,0 +1,20 @@
+{
+  "persona_id": "P-CIO-2",
+  "role": "CIO",
+  "professional_background": "Senior technology executive with experience modernizing enterprise platforms, leading cross-functional delivery, strengthening governance, and aligning technology portfolios with business strategy. Skilled in translating operational needs into scalable capabilities while balancing transformation, resilience, cost stewardship, and workforce readiness.",
+  "decision_priorities": [
+    "Strategic business alignment",
+    "Secure and resilient architecture",
+    "Sustainable operating value",
+    "Integration and scalability",
+    "Adoption and workforce readiness"
+  ],
+  "risk_attitude": "Favors measured innovation supported by governance and reversible commitments.",
+  "time_horizon": "Balances near-term operational gains with long-term architectural flexibility.",
+  "organizational_constraints": [
+    "Legacy system dependencies",
+    "Limited specialist capacity",
+    "Cross-functional governance requirements",
+    "Competing transformation initiatives"
+  ]
+}

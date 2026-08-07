@@ -1,0 +1,76 @@
+{
+  "cards": 15,
+  "cells": {
+    "same_role_different_generator": {
+      "pairs": 30,
+      "mean": 0.1789,
+      "min": 0.0921,
+      "max": 0.3131
+    },
+    "different_role_same_generator": {
+      "pairs": 15,
+      "mean": 0.1831,
+      "min": 0.0882,
+      "max": 0.3333
+    },
+    "different_role_different_generator": {
+      "pairs": 60,
+      "mean": 0.1183,
+      "min": 0.0534,
+      "max": 0.2316
+    }
+  },
+  "same_role_by_role": {
+    "CFO": 0.1654,
+    "CIO": 0.1939,
+    "COO": 0.1773
+  },
+  "lift_over_floor": {
+    "role": 1.513,
+    "generator": 1.548
+  },
+  "most_similar_pairs": [
+    {
+      "overlap": 0.3333,
+      "a": "P-CFO-3",
+      "b": "P-COO-3",
+      "generator_a": "openai",
+      "generator_b": "openai",
+      "same_role": false
+    },
+    {
+      "overlap": 0.3294,
+      "a": "P-CIO-2",
+      "b": "P-COO-3",
+      "generator_a": "openai",
+      "generator_b": "openai",
+      "same_role": false
+    },
+    {
+      "overlap": 0.3131,
+      "a": "P-CIO-2",
+      "b": "P-CIO-4",
+      "generator_a": "openai",
+      "generator_b": "xai",
+      "same_role": true
+    },
+    {
+      "overlap": 0.2835,
+      "a": "P-CIO-1",
+      "b": "P-CIO-4",
+      "generator_a": "moonshot",
+      "generator_b": "xai",
+      "same_role": true
+    },
+    {
+      "overlap": 0.25,
+      "a": "P-CIO-1",
+      "b": "P-CIO-3",
+      "generator_a": "moonshot",
+      "generator_b": "google",
+      "same_role": true
+    }
+  ],
+  "words_shared_by_every_card": [],
+  "measure": "Jaccard overlap of content-word sets; lexical, not semantic"
+}

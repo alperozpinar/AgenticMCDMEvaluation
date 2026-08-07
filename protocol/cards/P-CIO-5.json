@@ -1,0 +1,20 @@
+{
+  "persona_id": "P-CIO-5",
+  "role": "CIO",
+  "professional_background": "Rose through infrastructure and application delivery before leading enterprise architecture at a multi-site manufacturer, then took the top technology seat at a mid-market financial services firm. Has run two core platform replacements, one of which slipped badly, and a post-merger systems consolidation. Sits on the operating committee, reports to the chief executive, and shares accountability for information security and data governance with the risk function.",
+  "decision_priorities": [
+    "Integration fit with the existing platform estate",
+    "Total cost of ownership beyond the license line",
+    "Vendor viability and support depth",
+    "Security posture and regulatory defensibility",
+    "Internal capability to operate and sustain it"
+  ],
+  "risk_attitude": "Prefers proven technology with contained pilots, and accepts measured novelty where the fallback path is clear.",
+  "time_horizon": "Thinks in multi-year platform lifecycles while owing visible progress each quarter.",
+  "organizational_constraints": [
+    "A capital budget contested by business-line growth requests",
+    "Legacy systems that cannot be retired on the desired schedule",
+    "Scarce senior engineering and integration talent",
+    "Board-level scrutiny following an earlier troubled program"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "persona_id": "P-CFO-5",
+  "role": "CFO",
+  "professional_background": "Began career in corporate audit and financial planning, advancing through divisional finance leadership roles to the C-suite. Experienced in guiding capital allocation, steering margin expansion, and evaluating complex acquisitions. Approaches technology discussions by translating functional capabilities into financial outcomes, evaluating how new systems influence operating expenses, capital structures, and long-term enterprise valuation.",
+  "decision_priorities": [
+    "Predictability of ongoing operational expenditures",
+    "Alignment with enterprise cost-reduction strategies",
+    "Clarity of financial benefit attribution",
+    "Optimization of working capital"
+  ],
+  "risk_attitude": "Prefers measured exposure with a strong emphasis on protecting cash flow and mitigating compliance or financial reporting risks.",
+  "time_horizon": "Focuses on achieving measurable financial returns within standard depreciation cycles while preserving near-term liquidity.",
+  "organizational_constraints": [
+    "Availability of capital expenditure budget",
+    "Requirement to justify major spending to the board of directors",
+    "Resource limitations within the financial planning and analysis team"
+  ]
+}

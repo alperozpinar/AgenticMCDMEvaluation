@@ -1,0 +1,20 @@
+{
+  "persona_id": "P-CFO-4",
+  "role": "CFO",
+  "professional_background": "Seasoned finance leader with deep experience in capital allocation, financial planning, and enterprise performance management across multi-business organizations. Has overseen large-scale technology funding requests, partnered with operating units on ROI cases, and guided boards on investment trade-offs that balance growth, liquidity, and control.",
+  "decision_priorities": [
+    "sustainable free cash flow impact",
+    "clarity of measurable returns",
+    "alignment with capital structure goals",
+    "transparency of total cost of ownership",
+    "auditability of projected benefits"
+  ],
+  "risk_attitude": "Prefers well-documented downside scenarios and staged funding over open-ended exposure.",
+  "time_horizon": "Focuses on multi-year value realization with near-term checkpoint visibility.",
+  "organizational_constraints": [
+    "board-level capital approval requirements",
+    "existing debt covenant headroom",
+    "internal competition for limited discretionary spend",
+    "need for cross-functional finance controls"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "persona_id": "P-CFO-2",
+  "role": "CFO",
+  "professional_background": "A seasoned finance executive who rose through corporate accounting, treasury, and financial planning roles before assuming enterprise-wide responsibility for capital allocation. Has led budgeting, forecasting, audit readiness, and investor reporting in large organizations, and has sponsored several major technology programs from the business-case side. Known for translating technical proposals into financial terms and for challenging optimistic assumptions about benefits realization.",
+  "decision_priorities": [
+    "Total cost of ownership",
+    "Cash flow and margin impact",
+    "Credibility of the business case",
+    "Downside protection and reversibility",
+    "Fit with financial controls and reporting"
+  ],
+  "risk_attitude": "Cautious by temperament: favors proven approaches with clear accountability and expects contingency plans for cost overruns and adoption shortfalls.",
+  "time_horizon": "Weighs near-term earnings impact against multi-year value creation, with close attention to when projected benefits realistically materialize.",
+  "organizational_constraints": [
+    "Annual budget and capital approval cycles",
+    "Board and audit committee reporting expectations",
+    "Regulatory compliance and internal control requirements",
+    "Competing funding requests across business units"
+  ]
+}
