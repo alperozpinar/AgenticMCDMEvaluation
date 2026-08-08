@@ -54,6 +54,7 @@ class ConfigurationFault(RuntimeError):
     Slots already recorded stay recorded; the round is resumed after the cause is fixed.
     """
 
+
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 PROTOCOL = ROOT / "protocol"
 PROMPTS = ROOT / "prompts"
@@ -649,11 +650,20 @@ def cmd_collect(args: argparse.Namespace) -> None:
     ]
     counts: dict[str, int] = {}
     ordered = sorted(slots, key=lambda r: int(r["execution_position"]))
+    if args.role:
+        # The pilot is the CFO slice of rounds 1 to 3. Restricting the role selects that
+        # slice out of the frozen schedule rather than building a second schedule for it,
+        # so the pilot slots keep the execution order and positions they were assigned.
+        if args.role not in ROLES:
+            raise SystemExit(f"unknown role {args.role!r}; known: {ROLES}")
+        ordered = [r for r in ordered if r["card_id"].split("-")[1] == args.role]
+    scheduled = len(ordered)
     if not args.dry_run:
         done = completed_run_ids()
         ordered = [r for r in ordered if r["run_id"] not in done]
-    print(f"round {args.round}: {len(ordered)} slot(s) to run "
-          f"out of {len(slots)} scheduled")
+    scope = f" for {args.role}" if args.role else ""
+    print(f"round {args.round}{scope}: {len(ordered)} slot(s) to run "
+          f"out of {scheduled} scheduled")
     try:
         for slot in ordered:
             card_path = cards_dir / f"{slot['card_id']}.json"
@@ -691,6 +701,7 @@ def main() -> None:
 
     collect = sub.add_parser("collect", help="run one collection round")
     collect.add_argument("--round", type=int, required=True)
+    collect.add_argument("--role", help="restrict to one role; the pilot is CFO, rounds 1 to 3")
     collect.add_argument("--dry-run", action="store_true",
                          help="render every request and print its hash without calling")
 

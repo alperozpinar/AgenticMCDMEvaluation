@@ -9,7 +9,7 @@ version: 2
 # under which no card satisfying the frozen card schema could ever be admissible, which
 # cannot have been the intent. The wordings below are derived from that schema rather than
 # from any card. The clarification was written after the first fifteen cards existed and is
-# recorded as a deviation, not as a correction. See DEVIATIONS.md, 2026-08-06.
+# recorded as a deviation, not as a correction. See DEVIATIONS.md, 2026-08-07.
 
 acceptance_rule: >
   Accept the first card that passes every item. One structural repair that preserves

@@ -65,7 +65,7 @@ python -m agenticmcdm.harness collect --round 1 --dry-run   # renders, hashes, c
 
 ### 3. Generate and freeze the fifteen cards
 
-Done on 2026-08-06. All fifteen are frozen in `protocol/cards/` with the index assignment in
+Done on 2026-08-07. All fifteen are frozen in `protocol/cards/` with the index assignment in
 `_assignment.csv` under seed 20260806. Two cards used the one structural repair the checklist
 allows. The eleven admissibility items are recorded in `run/card_admissibility.csv` against
 checklist version 2, whose K6, K7 and K8 wordings are a logged deviation.

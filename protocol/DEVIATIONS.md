@@ -82,7 +82,7 @@ each call's position so a time effect can be examined afterwards. Concurrent exe
 collapse the realised order into a few moments and void all three. At the measured call rates
 a round takes about 47 minutes, comfortably inside the hour that separates rounds.
 
-## 2026-08-06, checklist items K6, K7 and K8 given operative wordings
+## 2026-08-07, checklist items K6, K7 and K8 given operative wordings
 
 The fifteen card-generation calls were made and all fifteen candidates were structurally
 valid. Two of them, Anthropic's CFO and COO cards, used the one structural repair the
@@ -114,7 +114,7 @@ choosing the reading after seeing model output.
 Under version 2 all fifteen candidates pass every item, and the recorded verdicts are in
 `run/card_admissibility.csv`.
 
-## 2026-08-06, cards frozen and a pre-collection descriptive added
+## 2026-08-07, cards frozen and a pre-collection descriptive added
 
 The fifteen cards are frozen in `protocol/cards/`. The within-role indices were drawn at
 freeze time from seed 20260806 and the generator-to-index mapping is in

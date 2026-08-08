@@ -70,6 +70,12 @@ Pilot completions enter the main analysis **only if nothing in `protocol/`, `pro
 excluded from the primary population and reported separately as a pre-study run. This rule
 exists so that the pilot cannot quietly become a tuning stage.
 
+Two files are exempt, and only these two. `protocol/DEVIATIONS.md` is written after the
+events it records, so a log that could not be appended to would not be a log. `protocol/
+cards/` is written by the freeze step, which happens before the first decision call and never
+again. Nothing else under those three directories may move once the pilot has run, and an
+addition counts as a change.
+
 Stopping rule for the pilot: it stops when its 75 scheduled slots are complete. It is not
 extended, shortened or repeated on the basis of what it shows.
 
