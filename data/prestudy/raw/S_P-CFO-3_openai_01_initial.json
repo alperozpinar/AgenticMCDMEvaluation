@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EASkP29AKY256mrSDjeVMQONx2EY1",
+  "object": "chat.completion",
+  "created": 1786162493,
+  "model": "gpt-5.6-sol",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"schema_version\": \"structured_v1_icaira\",\n  \"criterion_comparisons\": [\n    {\n      \"pair_id\": \"C1_C2\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C2\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Recurring cost certainty is more critical to affordability and cash flow resilience than forecast productivity hours.\"\n    },\n    {\n      \"pair_id\": \"C3_C5\",\n      \"criterion_a\": \"C3\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C3\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Lower implementation effort improves deployment readiness under constrained enterprise capacity.\"\n    },\n    {\n      \"pair_id\": \"C2_C4\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C4\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Reducing probable compliance losses protects sustainable value and governance outcomes before productivity gains are realized.\"\n    },\n    {\n      \"pair_id\": \"C1_C6\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Annual ownership cost has greater budget and cash flow impact than user proficiency time.\"\n    },\n    {\n      \"pair_id\": \"C4_C5\",\n      \"criterion_a\": \"C4\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Financial and compliance exposure can erode enterprise value more materially than additional throughput.\"\n    },\n    {\n      \"pair_id\": \"C2_C3\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C3\",\n      \"preferred\": \"C2\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Recurring productivity outcomes provide more durable value than a one-time implementation effort reduction.\"\n    },\n    {\n      \"pair_id\": \"C1_C4\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C4\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Committed annual ownership cost directly affects budgets and remains the primary affordability constraint.\"\n    },\n    {\n      \"pair_id\": \"C5_C6\",\n      \"criterion_a\": \"C5\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C5\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Sustained throughput better supports organization-wide scalability than modest differences in individual onboarding time.\"\n    },\n    {\n      \"pair_id\": \"C3_C4\",\n      \"criterion_a\": \"C3\",\n      \"criterion_b\": \"C4\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Ongoing exposure losses and compliance failures outweigh temporary production-readiness effort.\"\n    },\n    {\n      \"pair_id\": \"C2_C6\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C2\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Annual productivity released across the workforce creates greater measurable value than reduced proficiency time.\"\n    },\n    {\n      \"pair_id\": \"C1_C5\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Budget sustainability and total cost visibility take precedence over incremental throughput capacity.\"\n    },\n    {\n      \"pair_id\": \"C4_C6\",\n      \"criterion_a\": \"C4\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"very_strong\",\n      \"reason\": \"Compliance and data-exposure losses present materially greater financial and governance consequences than onboarding time.\"\n    },\n    {\n      \"pair_id\": \"C2_C5\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C2\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Realized workforce productivity is a more direct business outcome than technical throughput headroom.\"\n    },\n    {\n      \"pair_id\": \"C1_C3\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C3\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Recurring ownership cost affects every planning cycle, while integration effort is primarily transitional.\"\n    },\n    {\n      \"pair_id\": \"C3_C6\",\n      \"criterion_a\": \"C3\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C3\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Production-readiness effort more directly constrains implementation capacity and value realization than user training hours.\"\n    }\n  ],\n  \"declared_priority_order\": [\"C1\", \"C4\", \"C2\"]\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1141,
+    "completion_tokens": 1686,
+    "total_tokens": 2827,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 1138,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 579,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": null
+}

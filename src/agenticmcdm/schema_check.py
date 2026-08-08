@@ -1,9 +1,12 @@
 """Response validation, written as the protocol states it rather than as generic JSON Schema.
 
-The respondent returns three keys and no more. `persona_id` and `repetition` are attached by
-the harness from the scheduled slot, not requested from the model: the repetition index is a
-collection-round label, and putting it in the prompt would make the request differ between
-the repetitions of a cell, which the protocol forbids.
+The respondent returns two keys and no more, both of them judgments it made. Everything else
+the record needs is attached by the harness from the scheduled slot rather than asked of the
+model: `persona_id` and `repetition` because the repetition index is a collection-round label
+whose presence in the prompt would make a cell's repetitions differ byte for byte, and the
+prompt version because the harness is the thing that chose the prompt. Asking a respondent to
+echo a constant tests whether it can copy a token, which is not what this study measures, and
+it depressed one provider's first-attempt validity in the discarded pilot round.
 
 The schema files under `schemas/` are the published contract. This module is the executable
 form of the same rules, so a failure reports which protocol rule broke instead of a generic
@@ -20,7 +23,7 @@ from itertools import combinations
 CODES = ["C1", "C2", "C3", "C4", "C5", "C6"]
 INTENSITIES = {"equal", "moderate", "strong", "very_strong", "extreme"}
 ROLES = {"CFO", "CIO", "COO"}
-SCHEMA_VERSION = "structured_v1_icaira"
+PROMPT_VERSION = "structured_v2_icaira"   # recorded by the harness, never requested
 MAX_REASON_WORDS = 25
 
 
@@ -48,7 +51,7 @@ def check_decision(payload: object, expected_pairs: list[str]) -> Result:
     if not isinstance(payload, dict):
         return Result(False, ["E_TYPE: response is not a JSON object"])
 
-    allowed = {"schema_version", "criterion_comparisons", "declared_priority_order"}
+    allowed = {"criterion_comparisons", "declared_priority_order"}
     extra = set(payload) - allowed
     if extra:
         errors.append(f"E_EXTRA_FIELD: unexpected field(s) {sorted(extra)}")
@@ -56,9 +59,6 @@ def check_decision(payload: object, expected_pairs: list[str]) -> Result:
     if missing:
         errors.append(f"E_MISSING_FIELD: missing field(s) {sorted(missing)}")
         return Result(False, errors)
-
-    if payload["schema_version"] != SCHEMA_VERSION:
-        errors.append(f"E_VERSION: schema_version is {payload['schema_version']!r}")
 
     comparisons = payload["criterion_comparisons"]
     if not isinstance(comparisons, list):

@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EASpas1ctYMlIawKKulKf4Lp0Gcgf",
+  "object": "chat.completion",
+  "created": 1786162814,
+  "model": "gpt-5.6-sol",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"schema_version\": \"structured_v1_icaira\",\n  \"criterion_comparisons\": [\n    {\n      \"pair_id\": \"C1_C2\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C2\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Predictable recurring expenditure has a more direct cash-flow and margin impact than projected time savings.\"\n    },\n    {\n      \"pair_id\": \"C3_C5\",\n      \"criterion_a\": \"C3\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C3\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Lower implementation effort protects near-term liquidity and constrained internal resources more directly than additional throughput.\"\n    },\n    {\n      \"pair_id\": \"C2_C4\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C4\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Avoiding probability-weighted compliance losses better protects cash flow and financial reporting integrity than expected productivity gains.\"\n    },\n    {\n      \"pair_id\": \"C1_C6\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"very_strong\",\n      \"reason\": \"Annual ownership cost directly affects budgets and margins, while onboarding time has a less certain financial impact.\"\n    },\n    {\n      \"pair_id\": \"C4_C5\",\n      \"criterion_a\": \"C4\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"very_strong\",\n      \"reason\": \"Compliance-loss exposure threatens cash flow and governance, whereas throughput matters only if capacity becomes financially constraining.\"\n    },\n    {\n      \"pair_id\": \"C2_C3\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C3\",\n      \"preferred\": \"C2\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Recurring productivity benefits support measurable returns across the depreciation cycle, outweighing one-time production-readiness effort.\"\n    },\n    {\n      \"pair_id\": \"C1_C4\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C4\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Certain annual ownership costs require immediate budget accountability, while compliance losses are probability weighted.\"\n    },\n    {\n      \"pair_id\": \"C5_C6\",\n      \"criterion_a\": \"C5\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C6\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Faster proficiency accelerates benefit realization across users, while excess throughput offers limited value without demonstrated demand.\"\n    },\n    {\n      \"pair_id\": \"C3_C4\",\n      \"criterion_a\": \"C3\",\n      \"criterion_b\": \"C4\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Annual compliance-loss exposure creates continuing cash-flow and reporting risk beyond the temporary burden of integration.\"\n    },\n    {\n      \"pair_id\": \"C2_C6\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C2\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Annual released capacity provides a clearer recurring financial benefit than the one-time time required for user proficiency.\"\n    },\n    {\n      \"pair_id\": \"C1_C5\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"very_strong\",\n      \"reason\": \"Ownership cost directly determines operating expenditure and board affordability; throughput has less direct financial attribution.\"\n    },\n    {\n      \"pair_id\": \"C4_C6\",\n      \"criterion_a\": \"C4\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Reducing recurring compliance losses protects enterprise value and cash flow more than shortening user learning time.\"\n    },\n    {\n      \"pair_id\": \"C2_C5\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C2\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Released person-hours provide clearer financial benefit attribution than technical throughput capacity.\"\n    },\n    {\n      \"pair_id\": \"C1_C3\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C3\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Recurring ownership cost drives sustained margin impact, while integration effort is primarily a one-time implementation burden.\"\n    },\n    {\n      \"pair_id\": \"C3_C6\",\n      \"criterion_a\": \"C3\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C3\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Production-readiness effort creates concentrated funding and resource demands, making it more consequential than individual onboarding time.\"\n    }\n  ],\n  \"declared_priority_order\": [\n    \"C1\",\n    \"C4\",\n    \"C2\"\n  ]\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1181,
+    "completion_tokens": 1545,
+    "total_tokens": 2726,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 1178,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 391,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": null
+}

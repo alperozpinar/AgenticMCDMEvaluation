@@ -4,14 +4,10 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "schema_version",
     "criterion_comparisons",
     "declared_priority_order"
   ],
   "properties": {
-    "schema_version": {
-      "const": "structured_v1_icaira"
-    },
     "criterion_comparisons": {
       "type": "array",
       "minItems": 15,
@@ -96,5 +92,5 @@
       }
     }
   },
-  "description": "Model output only. persona_id and repetition are attached by the harness from the scheduled slot and are never requested from the model."
+  "description": "Model output only. persona_id, repetition and the prompt version are attached by the harness from the scheduled slot and are never requested from the model."
 }

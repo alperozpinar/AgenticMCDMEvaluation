@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EASo5ndWVbEwUhdbW5obTrarJ5aBj",
+  "object": "chat.completion",
+  "created": 1786162721,
+  "model": "gpt-5.6-sol",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"schema_version\": \"structured_v1_icaira\",\n  \"criterion_comparisons\": [\n    {\n      \"pair_id\": \"C1_C2\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C2\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"strong\",\n      \"reason\": \"TCO directly affects budgets and margins, while projected productivity benefits carry realization risk.\"\n    },\n    {\n      \"pair_id\": \"C3_C5\",\n      \"criterion_a\": \"C3\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C3\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Lower integration effort reduces deployment cost, schedule exposure, and pressure on the capital approval cycle.\"\n    },\n    {\n      \"pair_id\": \"C2_C4\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C4\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Compliance losses threaten cash flow, controls, and board confidence more directly than uncertain productivity gains.\"\n    },\n    {\n      \"pair_id\": \"C1_C6\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"very_strong\",\n      \"reason\": \"Recurring ownership cost has a larger and more persistent earnings impact than temporary user training time.\"\n    },\n    {\n      \"pair_id\": \"C4_C5\",\n      \"criterion_a\": \"C4\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"very_strong\",\n      \"reason\": \"Downside protection from exposure and compliance failures outweighs incremental processing capacity.\"\n    },\n    {\n      \"pair_id\": \"C2_C3\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C3\",\n      \"preferred\": \"C2\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Sustained annual productivity value can justify the program despite a manageable one-time integration burden.\"\n    },\n    {\n      \"pair_id\": \"C1_C4\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C4\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"TCO is a certain recurring commitment affecting budgets and margins, while compliance loss is probability weighted.\"\n    },\n    {\n      \"pair_id\": \"C5_C6\",\n      \"criterion_a\": \"C5\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C6\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Faster proficiency supports adoption and earlier benefits realization, reducing the risk of underused capacity.\"\n    },\n    {\n      \"pair_id\": \"C3_C4\",\n      \"criterion_a\": \"C3\",\n      \"criterion_b\": \"C4\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Annual exposure and compliance losses create recurring financial and governance risk beyond one-time deployment effort.\"\n    },\n    {\n      \"pair_id\": \"C2_C6\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C2\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Annual productivity benefit drives the economic case more than the temporary cost of reaching proficiency.\"\n    },\n    {\n      \"pair_id\": \"C1_C5\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"very_strong\",\n      \"reason\": \"Recurring cost and margin impact matter substantially more than throughput beyond the registered operating target.\"\n    },\n    {\n      \"pair_id\": \"C4_C6\",\n      \"criterion_a\": \"C4\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"very_strong\",\n      \"reason\": \"Compliance and data-exposure losses pose materially greater financial and control consequences than onboarding time.\"\n    },\n    {\n      \"pair_id\": \"C2_C5\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C2\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Released working time provides clearer enterprise value than technical throughput considered independently.\"\n    },\n    {\n      \"pair_id\": \"C1_C3\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C3\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Annualized TCO shapes recurring earnings and funding capacity more than one-time engineering effort.\"\n    },\n    {\n      \"pair_id\": \"C3_C6\",\n      \"criterion_a\": \"C3\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C3\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Production-readiness effort has greater budget, delivery, and accountability implications than per-user proficiency time.\"\n    }\n  ],\n  \"declared_priority_order\": [\n    \"C1\",\n    \"C4\",\n    \"C2\"\n  ]\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1210,
+    "completion_tokens": 1497,
+    "total_tokens": 2707,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 1207,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 363,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": null
+}

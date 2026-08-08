@@ -302,7 +302,7 @@ def run_slot(slot: dict, model_row: dict, case: dict, card_json: str, dry_run: b
         "snapshot": model_row.get("snapshot", ""),
         "card_id": slot["card_id"],
         "card_hash": _hash(card_json),
-        "prompt_version": "structured_v1_icaira",
+        "prompt_version": schema_check.PROMPT_VERSION,
         "request_hash": _hash(system + user),
         "system_prompt_hash": _hash(system),
         "matrix_hash": case["matrix_hash"],

@@ -145,6 +145,48 @@ The measure is lexical rather than semantic, so it bounds one direction only: hi
 would show similar wording, while low overlap leaves open that two cards express the same
 priorities in different words.
 
+## 2026-08-08, pilot round 1 discarded and the version echo removed
+
+The first pilot round ran: 25 CFO slots, no transport failures, 23 first-attempt valid and
+two repaired. Both failures were Anthropic's and both trace to one line of
+`prompts/decision_user.txt` rather than to the service. The output contract carried
+`"schema_version": "structured_v1_icaira"` as a literal while the sentence below it said the
+template holds no suggested answers. One response wrote
+`"schema_version":"schema_version_placeholder"` and a second wrote that, noticed, apologised
+mid-response and emitted a second complete object, which parsed as trailing data. Three of
+Anthropic's five got it right, so the fault is stochastic and would have recurred across the
+full 375 calls.
+
+Echoing a constant carries no judgment. The harness chose the prompt and already records
+`prompt_version` in every ledger row, so asking the respondent to repeat it measured whether a
+service copies a token, and first-attempt validity is a quantity this study reports and a
+section 11 warning trigger. Leaving it in would have depressed one provider's rate for a
+reason unrelated to deciding anything.
+
+`schema_version` is therefore gone from the response contract, in the prompt, in
+`schemas/decision_response.schema.json` and in `schema_check.check_decision`. The respondent
+now returns two keys, `criterion_comparisons` and `declared_priority_order`, both of them its
+own judgments. A response that volunteers a version now fails with `E_EXTRA_FIELD`. The
+contract block holds only angle-bracket placeholders, so there is no longer any literal in it
+to mistake for one, and a sentence now asks for one object rather than two.
+
+Under section 2 this change voids the round that exposed it. All 25 completions leave the
+primary population and are reported as a pre-study run; the ledger rows are in
+`data/prestudy/ledger_prestudy_20260808.csv` and the response bytes in `data/prestudy/raw/`.
+The prompt version is raised to `structured_v2_icaira` so the two populations are told apart
+by the record rather than by their dates. The fifteen card-generation rows stay in the primary
+ledger: the card prompt did not change, and `protocol/cards/` is exempt.
+
+What the discarded round showed is recorded here because it cost 25 calls and should not have
+to be paid for twice. Consistency: CR median 0.091 with 10 of 25 at or above 0.10, which is a
+warning under section 11 and not an exclusion. Weights concentrated near C1 0.38, C4 0.26,
+C2 0.18, with a standard deviation of 0.057 on C1. EDAS and TOPSIS agreed on the winner in 25
+of 25. That last one matters for E4: the matrix screening found 10.2 percent procedure
+disagreement over the Dirichlet weight space, but the weights these respondents actually
+produce sit in a small region of the simplex where the two procedures coincide. None of this
+is a result, since it comes from a discarded round on one role, and none of it changed
+anything in `protocol/` beyond this entry.
+
 ## Open before the first call
 
 - Domain review of the criterion definitions, units and values is outstanding.

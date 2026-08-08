@@ -81,12 +81,37 @@ Someone with the domain background confirms that the six criterion definitions, 
 and the values in `decision_matrix_main.csv` are plausible. The screening only shows the
 matrix is mathematically usable, not that it is sensible.
 
+**This is now the one open item that can still void the pilot.** A review that changes a
+criterion definition or a matrix value changes `protocol/`, and under section 2 that excludes
+every pilot completion collected before it. The first pilot round was already discarded once
+for a prompt fault, at a cost of 25 calls. Running rounds 2 and 3 before this review is
+finished risks paying that again at three times the price. Either do the review first, or
+accept the risk knowingly.
+
 ### 5. Archival deposit
 
 GitHub is a working copy, not an archive: history can be rewritten and the repository can be
 renamed, made private or deleted. Connect Zenodo to this repository and cut a release, which
 mints a versioned DOI. Then record that DOI in the manuscript, in `CITATION.cff` and in
 `protocol/DEVIATIONS.md`.
+
+### 6. Run the pilot
+
+The schedule is frozen under seed 20260805: 375 slots, 75 per round, and the pilot is the CFO
+slice of rounds 1 to 3 at 25 slots each. Rounds sit at least an hour apart and the collection
+spans at least two calendar days, so the pilot cannot finish in one sitting.
+
+```bash
+python -m agenticmcdm.harness collect --round 1 --role CFO
+```
+
+Round 1 ran once under prompt version `structured_v1_icaira` and was discarded; see the
+2026-08-08 deviation. It is being rerun under `structured_v2_icaira`. Rounds 2 and 3 follow
+with the same command and a different `--round`.
+
+Once a round has run, nothing under `protocol/`, `prompts/` or `schemas/` may move except
+`DEVIATIONS.md` and `protocol/cards/`. Any other change there discards every pilot completion
+collected before it.
 
 ---
 

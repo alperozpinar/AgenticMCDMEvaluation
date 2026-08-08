@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EASpwM3O1cN3AYsOE9SHagCNSgISP",
+  "object": "chat.completion",
+  "created": 1786162836,
+  "model": "gpt-5.6-sol",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"schema_version\": \"structured_v1_icaira\",\n  \"criterion_comparisons\": [\n    {\n      \"pair_id\": \"C1_C2\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C2\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Annual cash cost directly affects free cash flow, while released hours require disciplined benefit capture.\"\n    },\n    {\n      \"pair_id\": \"C3_C5\",\n      \"criterion_a\": \"C3\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C3\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Production-readiness effort determines near-term funding exposure and the visibility of implementation checkpoints.\"\n    },\n    {\n      \"pair_id\": \"C2_C4\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C4\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Monetized compliance loss creates direct downside exposure, whereas productivity hours may not fully convert into financial returns.\"\n    },\n    {\n      \"pair_id\": \"C1_C6\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Recurring total cost has a larger multi-year cash impact than a bounded user training requirement.\"\n    },\n    {\n      \"pair_id\": \"C4_C5\",\n      \"criterion_a\": \"C4\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Compliance exposure can produce material financial loss and control failures; throughput matters only when demand requires it.\"\n    },\n    {\n      \"pair_id\": \"C2_C3\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C3\",\n      \"preferred\": \"C2\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Recurring annual productivity potential drives multi-year value more than one-time engineering effort.\"\n    },\n    {\n      \"pair_id\": \"C1_C4\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C4\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Total cost is a certain recurring commitment affecting liquidity, while compliance loss is probability weighted.\"\n    },\n    {\n      \"pair_id\": \"C5_C6\",\n      \"criterion_a\": \"C5\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C5\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Sustained capacity protects organization-wide service value, while onboarding time is a limited adoption cost.\"\n    },\n    {\n      \"pair_id\": \"C3_C4\",\n      \"criterion_a\": \"C3\",\n      \"criterion_b\": \"C4\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Annual exposure and compliance losses can persist, unlike the primarily one-time effort to reach production.\"\n    },\n    {\n      \"pair_id\": \"C2_C6\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C2\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Annual released capacity offers continuing value, substantially outweighing the finite time needed for user proficiency.\"\n    },\n    {\n      \"pair_id\": \"C1_C5\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"very_strong\",\n      \"reason\": \"Recurring ownership cost directly affects capital affordability; throughput alone does not establish financial return.\"\n    },\n    {\n      \"pair_id\": \"C4_C6\",\n      \"criterion_a\": \"C4\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Data and compliance losses threaten cash and controls, while proficiency time is manageable through planned onboarding.\"\n    },\n    {\n      \"pair_id\": \"C2_C5\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C2\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Released working time is a measurable enterprise benefit; technical capacity is valuable only when converted into productive usage.\"\n    },\n    {\n      \"pair_id\": \"C1_C3\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C3\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Annual total cost creates sustained cash obligations, while integration effort is concentrated before production.\"\n    },\n    {\n      \"pair_id\": \"C3_C6\",\n      \"criterion_a\": \"C3\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C3\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Engineering effort drives deployment funding and execution risk more directly than individual proficiency time.\"\n    }\n  ],\n  \"declared_priority_order\": [\"C1\", \"C4\", \"C2\"]\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1171,
+    "completion_tokens": 1806,
+    "total_tokens": 2977,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 1168,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 668,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": null
+}

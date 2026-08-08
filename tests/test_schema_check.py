@@ -23,7 +23,6 @@ def good_response(**overrides):
         for a, b in itertools.combinations(CODES, 2)
     ]
     payload = {
-        "schema_version": "structured_v1_icaira",
         "criterion_comparisons": comparisons,
         "declared_priority_order": ["C1", "C4", "C2"],
     }
@@ -109,6 +108,12 @@ def test_ranking_of_alternatives_is_rejected_as_an_extra_field():
 def test_persona_id_from_the_model_is_rejected_as_an_extra_field():
     """The harness attaches persona_id; a model that volunteers it broke the contract."""
     assert "E_EXTRA_FIELD" in check_decision(good_response(persona_id="P-CFO-3"), PAIRS).codes
+
+
+def test_an_echoed_prompt_version_is_rejected_as_an_extra_field():
+    """Echoing a constant tested copying rather than judgment, so it left the contract."""
+    assert "E_EXTRA_FIELD" in check_decision(
+        good_response(schema_version="structured_v2_icaira"), PAIRS).codes
 
 
 # ------------------------------------------------------------------ cards

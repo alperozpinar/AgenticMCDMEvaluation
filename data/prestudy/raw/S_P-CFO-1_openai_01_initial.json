@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EASna90FquAkNCx47aJuf7KaFBh5s",
+  "object": "chat.completion",
+  "created": 1786162690,
+  "model": "gpt-5.6-sol",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"schema_version\": \"structured_v1_icaira\",\n  \"criterion_comparisons\": [\n    {\n      \"pair_id\": \"C1_C2\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C2\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Annualized TCO creates a traceable multi-year cost burden; expected hours released are less directly realizable.\"\n    },\n    {\n      \"pair_id\": \"C3_C5\",\n      \"criterion_a\": \"C3\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C3\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Lower production effort preserves scarce delivery bandwidth and reduces execution exposure; throughput matters only after successful deployment.\"\n    },\n    {\n      \"pair_id\": \"C2_C4\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C4\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Avoiding probability-weighted compliance losses protects audit obligations and downside exposure more directly than projected time savings.\"\n    },\n    {\n      \"pair_id\": \"C1_C6\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"very_strong\",\n      \"reason\": \"Recurring platform cost materially shapes capital allocation and earnings; user training time is a narrower implementation concern.\"\n    },\n    {\n      \"pair_id\": \"C4_C5\",\n      \"criterion_a\": \"C4\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"very_strong\",\n      \"reason\": \"Compliance exposure can create financial and audit consequences; throughput is primarily an operating-capacity consideration.\"\n    },\n    {\n      \"pair_id\": \"C2_C3\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C3\",\n      \"preferred\": \"C2\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Recurring released capacity supports the business case across multiple years, outweighing one-time production-readiness effort.\"\n    },\n    {\n      \"pair_id\": \"C1_C4\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C4\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Both are annual financial exposures, but TCO is certain and persistent while compliance loss is probability-weighted.\"\n    },\n    {\n      \"pair_id\": \"C5_C6\",\n      \"criterion_a\": \"C5\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C6\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"User proficiency more directly determines whether organization-wide benefits are realized, while throughput remains an enabling capacity.\"\n    },\n    {\n      \"pair_id\": \"C3_C4\",\n      \"criterion_a\": \"C3\",\n      \"criterion_b\": \"C4\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Compliance losses threaten controls, reporting obligations and audit outcomes; integration effort is a bounded readiness cost.\"\n    },\n    {\n      \"pair_id\": \"C2_C6\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C2\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Annual productivity benefit is the core economic outcome; onboarding time is an adoption cost affecting realization.\"\n    },\n    {\n      \"pair_id\": \"C1_C5\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"very_strong\",\n      \"reason\": \"TCO directly affects funding capacity and recurring results; throughput has a less direct financial consequence.\"\n    },\n    {\n      \"pair_id\": \"C4_C6\",\n      \"criterion_a\": \"C4\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C4\",\n      \"intensity\": \"very_strong\",\n      \"reason\": \"Data and compliance losses affect the control environment and external obligations; proficiency time mainly affects rollout efficiency.\"\n    },\n    {\n      \"pair_id\": \"C2_C5\",\n      \"criterion_a\": \"C2\",\n      \"criterion_b\": \"C5\",\n      \"preferred\": \"C2\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Released work capacity is the business outcome supporting the case; throughput is an enabling technical capability.\"\n    },\n    {\n      \"pair_id\": \"C1_C3\",\n      \"criterion_a\": \"C1\",\n      \"criterion_b\": \"C3\",\n      \"preferred\": \"C1\",\n      \"intensity\": \"strong\",\n      \"reason\": \"Annualized TCO affects the full evaluation horizon and capital plan; integration effort is concentrated before production.\"\n    },\n    {\n      \"pair_id\": \"C3_C6\",\n      \"criterion_a\": \"C3\",\n      \"criterion_b\": \"C6\",\n      \"preferred\": \"C3\",\n      \"intensity\": \"moderate\",\n      \"reason\": \"Production-readiness effort creates immediate execution and resource pressure; onboarding time follows only after a viable deployment.\"\n    }\n  ],\n  \"declared_priority_order\": [\n    \"C1\",\n    \"C4\",\n    \"C2\"\n  ]\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1193,
+    "completion_tokens": 2112,
+    "total_tokens": 3305,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 1190,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 935,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": null
+}
