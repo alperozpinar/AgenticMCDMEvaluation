@@ -113,6 +113,45 @@ Once a round has run, nothing under `protocol/`, `prompts/` or `schemas/` may mo
 `DEVIATIONS.md` and `protocol/cards/`. Any other change there discards every pilot completion
 collected before it.
 
+### 7. Record that the collection window straddles the output-marking rollout
+
+Write a `DEVIATIONS.md` entry before rounds 2 and 3 run, so the record is contemporaneous
+rather than reconstructed.
+
+The transparency obligations of Regulation (EU) 2024/1689 became applicable on 2 August 2026,
+four days before the access date in the model registry. Providers are marking generated text
+on different timetables, and at least one states that supported models embed an imperceptible
+watermark in text across its API as well as its applications, for models launched in the EU on
+or after that date, with earlier models retrofitted during a transition period that runs to
+2 December 2026 (verified 2026-08-13 against the provider's own support documentation, not a
+secondary report). Marking acts at decoding time, so a provider enabling it between rounds
+changes token selection inside the quantity the repetition factor exists to measure.
+
+Nothing needs to change in the harness or the registry, and the registry must not change: it
+is frozen and marking is not a field it carries. Two things make this recordable anyway:
+
+- The ledger already stores `reported_model`, `snapshot`, `provider_request_id` and
+  `requested_at_utc` per call, and `raw_response_path` archives the full raw response of every
+  attempt. So when detection tooling ships, every collected completion can be tested
+  retrospectively without having anticipated the test.
+- `DEVIATIONS.md` is one of the two paths that may move after a round has run, which is
+  exactly what this belongs in.
+
+The manuscript carries the same point in two places already: a warning condition in
+Section IV-D for a provider beginning or altering marking during collection, and a limitation
+paragraph in Section V-B.
+
+### 8. Verify whether the Gemini API marks text
+
+Open and unresolved. Google's own SynthID documentation does not say which products apply text
+watermarking, and it was checked on 2026-08-13. Secondary reports disagree: one claims Gemini
+API output always carries SynthID, two describe text watermarking as limited to the Gemini
+application. The cards were generated through the API, so the distinction matters here and the
+disagreement is not settled by anything read so far.
+
+Needed: a primary statement from Google, or a direct test. Until one exists, no claim about
+this provider is made anywhere in the manuscript or the protocol.
+
 ---
 
 ## After the pilot
