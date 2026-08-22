@@ -113,18 +113,27 @@ Once a round has run, nothing under `protocol/`, `prompts/` or `schemas/` may mo
 `DEVIATIONS.md` and `protocol/cards/`. Any other change there discards every pilot completion
 collected before it.
 
-### 7. Record that the collection window straddles the output-marking rollout
+### 7. Record that the output-marking rollout overlaps the collection window
 
-Write a `DEVIATIONS.md` entry before rounds 2 and 3 run, so the record is contemporaneous
-rather than reconstructed.
+Done. `protocol/DEVIATIONS.md` carries the entry, and `PROTOCOL.md` section 11 now lists
+seven warning conditions rather than six, which is what the manuscript states. Recorded before
+rounds 2 and 3 run, so the record is contemporaneous rather than reconstructed. No completion
+is discarded: the entry adds a reporting condition and changes no prompt, schema, criterion,
+matrix value or scheduling rule.
 
 The transparency obligations of Regulation (EU) 2024/1689 became applicable on 2 August 2026,
-four days before the access date in the model registry. Providers are marking generated text
-on different timetables, and at least one states that supported models embed an imperceptible
-watermark in text across its API as well as its applications, for models launched in the EU on
-or after that date, with earlier models retrofitted during a transition period that runs to
-2 December 2026 (verified 2026-08-13 against the provider's own support documentation, not a
-secondary report). Marking acts at decoding time, so a provider enabling it between rounds
+four days before the access date in the model registry, so the rollout overlaps the collection
+window rather than preceding it. Providers are marking generated text on different timetables.
+
+Verified against one provider's own support documentation: supported models embed an
+imperceptible watermark in generated text, the scope covers its API as well as its
+applications, and models launched in the EU on or after 2 August 2026 support marking at
+launch, with earlier models retrofitted during a transition period. That document gives no end
+date for the transition and states no opt-out; an earlier draft of this item asserted a
+2 December 2026 deadline, which came from a law-firm summary quoted in a brainstorming report,
+was hedged there as a possibility, and is not carried here.
+
+Marking of the statistical kind acts at decoding time, so a provider enabling it between rounds
 changes token selection inside the quantity the repetition factor exists to measure.
 
 Nothing needs to change in the harness or the registry, and the registry must not change: it
@@ -156,19 +165,19 @@ this provider is made anywhere in the manuscript or the protocol.
 
 ## After the pilot
 
-### 6. Analysis layer
+### 9. Analysis layer
 
 Not written. Needs the estimands in `protocol/PROTOCOL.md` section 6 implemented: repeat
 stability as a per-cell U-statistic, cross-condition distances as cross products, the paired
 procedure distance, declared-priority congruence, criterion-removal impact, the stratified
 bootstrap at 9,999 percentile replicates, and the undefined-cell rule.
 
-### 7. Blinding manipulation check
+### 10. Blinding manipulation check
 
 One call per service after collection, per `PROTOCOL.md` section 8. Fifteen binary outcomes
 against a chance level of one in five.
 
-### 8. Reference-set recalculation
+### 11. Reference-set recalculation
 
 Add E with fixed weights, recompute every term, and report the two readings separately: an
 E-over-D event is a software fault, an A to D inversion is procedure sensitivity.

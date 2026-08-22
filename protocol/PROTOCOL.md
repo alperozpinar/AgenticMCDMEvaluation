@@ -284,6 +284,9 @@ A warning record is emitted when:
   as a count because five completions admit only five proportions;
 - the first semantic response fails the schema, or a repair is used;
 - a provider snapshot changes during collection;
+- a provider begins or alters machine-readable marking of its generated text during
+  collection, which a snapshot check does not catch because the snapshot identifier need
+  not change with it;
 - the withheld dominated alternative outranks its dominator, which is a software fault.
 
 The three appraisal-gap values are reported together rather than as one threshold, because

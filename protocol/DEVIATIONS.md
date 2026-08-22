@@ -187,6 +187,39 @@ produce sit in a small region of the simplex where the two procedures coincide. 
 is a result, since it comes from a discarded round on one role, and none of it changed
 anything in `protocol/` beyond this entry.
 
+## 2026-08-13, a seventh warning condition added for provider output marking
+
+`protocol/PROTOCOL.md` section 11 listed six warning conditions. A seventh is added: a
+provider beginning or altering machine-readable marking of its generated text during
+collection.
+
+Why. The transparency obligations of Regulation (EU) 2024/1689 became applicable on
+2 August 2026, four days before the access date every row of `models/model_registry.csv`
+carries, and providers are adopting marking on different timetables. Marking of the
+statistical kind acts at decoding time, so a provider enabling it between rounds changes
+token selection inside the quantity the repetition factor exists to measure. The existing
+snapshot-change warning does not catch it, because the snapshot identifier need not change
+when marking is switched on.
+
+Data affected: none. No completion is discarded. This adds a reporting condition and changes
+no prompt, no schema, no criterion, no matrix value and no scheduling rule. Section 2's
+freeze covers changes that alter what is asked of a respondent or how a response is scored;
+this alters neither.
+
+How it is evaluated. The ledger already records `reported_model`, `snapshot`,
+`provider_request_id` and `requested_at_utc` per call, and `raw_response_path` archives every
+raw response, so the condition can be evaluated retrospectively once provider detection
+tooling exists. No harness change and no registry change is required, and the registry must
+not change.
+
+Honest scope. Whether marking was active for any specific call in this study is not
+established. One provider's own support documentation states that supported models embed an
+imperceptible watermark in generated text across its API as well as its applications, for
+models launched in the EU on or after 2 August 2026, with earlier models retrofitted during a
+transition period whose end date that document does not give. The registry records no
+provider-exposed dated snapshot for any of the five services, so no per-service claim is made
+here or in the manuscript.
+
 ## Open before the first call
 
 - Domain review of the criterion definitions, units and values is outstanding.
