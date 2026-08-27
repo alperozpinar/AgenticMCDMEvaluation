@@ -115,11 +115,18 @@ collected before it.
 
 ### 7. Record that the output-marking rollout overlaps the collection window
 
-Done. `protocol/DEVIATIONS.md` carries the entry, and `PROTOCOL.md` section 11 now lists
-seven warning conditions rather than six, which is what the manuscript states. Recorded before
-rounds 2 and 3 run, so the record is contemporaneous rather than reconstructed. No completion
-is discarded: the entry adds a reporting condition and changes no prompt, schema, criterion,
-matrix value or scheduling rule.
+Done, and then partly undone by peer review. `protocol/DEVIATIONS.md` carries both entries.
+The rollout overlap is recorded, which is what this item asked for. The seventh warning
+condition that the first entry added was withdrawn after a reviewer pointed out that an
+imperceptible mark is not detectable from an API response without a provider tool, so the
+condition could never fire. Section 11 is back to six conditions and the manuscript states
+the point as a limitation instead. No completion is affected: no round ran under the seventh
+condition, and neither entry changed a prompt, a schema, a criterion, a matrix value or a
+scheduling rule.
+
+What is still open here: if a provider ships a detection tool, the archived raw responses in
+`data/raw/` can be tested retrospectively, and that result would belong in a further
+deviation entry.
 
 The transparency obligations of Regulation (EU) 2024/1689 became applicable on 2 August 2026,
 four days before the access date in the model registry, so the rollout overlaps the collection
