@@ -304,6 +304,19 @@ Repetition stays at five. Data affected: none. This changes a reporting label an
 publication commitment, not a computation, a prompt, a schema, a criterion, a matrix value or
 a scheduling rule.
 
+## 2026-08-27, call budget corrected from 390 to 395
+
+Section 4 stated the model-call budget as 375 decision calls plus 15 card-generation calls,
+totalling 390. Section 8 defines a blinding manipulation check in which each service is shown
+all fifteen anonymized cards and asked to name the three it wrote. That is one session per
+service, five model calls, and the budget never counted them.
+
+Corrected to 395. Nothing about the study changes: the blinding check was already specified,
+already scheduled after collection, and already excluded from every other analysis. Only the
+arithmetic that summarised it was wrong.
+
+Data affected: none. Raised in an independent read of the manuscript.
+
 ## Open before the first call
 
 - Domain review of the criterion definitions, units and values is outstanding.

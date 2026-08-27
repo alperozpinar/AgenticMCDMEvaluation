@@ -47,7 +47,8 @@ Decision completions: 15 cards x 5 services x 5 repetitions = 375.
 Derived rankings: 375 x 2 procedures = 750. These are dependent recalculations of the 375
 completions and are never reported as a sample size.
 
-Model calls: 375 decision calls + 15 card-generation calls = 390, plus a retry allowance.
+Model calls: 375 decision calls + 15 card-generation calls = 390, plus 5 blinding-check
+calls, one per service, giving 395 in total, plus a retry allowance.
 
 ### Pilot and its relation to the full study
 
