@@ -284,6 +284,26 @@ the data it will run on exists.
 
 Raised in peer review of the manuscript.
 
+## 2026-08-27, bootstrap intervals renamed exploratory and raw cell values committed
+
+Section 9 defined a percentile bootstrap over five completions per cell and already called
+the result narrow evidence. It did not name it, and a reader could take a percentile interval
+for a confidence interval.
+
+Peer review raised the point: ten within-cell pairs make the bootstrap distribution of a
+per-cell U-statistic coarse, so an interval computed from it should not be read as supporting
+a definitive claim about a service's characteristic variability. The reviewer offered two
+routes, raising repetitions to at least ten or keeping five and labelling the intervals
+honestly. The operator chose the second.
+
+Section 9 now names them exploratory uncertainty intervals, states that no definitive claim
+about characteristic variability follows from them, and commits to publishing every cell's
+five completion-level values so the spread behind each interval is visible.
+
+Repetition stays at five. Data affected: none. This changes a reporting label and a
+publication commitment, not a computation, a prompt, a schema, a criterion, a matrix value or
+a scheduling rule.
+
 ## Open before the first call
 
 - Domain review of the criterion definitions, units and values is outstanding.

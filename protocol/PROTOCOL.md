@@ -238,6 +238,14 @@ is reported as a bounded, one-sided piece of evidence.
 
 ## 9. Intervals
 
+Repetition is fixed at five completions per cell, which is a budget decision and not a
+number chosen for interval width. Five completions give ten within-cell pairs, so the
+bootstrap distribution of a per-cell U-statistic is coarse and its quantiles are discrete.
+The intervals this section defines are therefore reported as **exploratory uncertainty
+intervals**, never as confidence intervals, and no definitive claim about a service's
+characteristic variability is made from them. What carries the finding is the point estimate
+beside the raw within-cell values.
+
 - Stratified bootstrap resampling completions inside each fixed cell, keeping both
   procedures, the consistency indices and the declared priorities attached to their source
   completion.
@@ -250,8 +258,10 @@ is reported as a bounded, one-sided piece of evidence.
   intended behavior and is why the interval is narrow evidence: **it covers run-to-run
   variability within a fixed cell and nothing else.** It carries no uncertainty about which
   card or which service was chosen, because those are fixed conditions.
-- Point estimates, raw cell distributions and exact denominators are the primary reporting.
-  Intervals are supporting.
+- Point estimates, raw cell distributions and exact denominators are the primary reporting,
+  and every cell's five completion-level values are published so a reader can see the
+  spread the interval was computed from. Intervals are supporting and are labelled
+  exploratory wherever they appear.
 - No confirmatory test and no p-value.
 
 ## 10. Criterion-removal impact
