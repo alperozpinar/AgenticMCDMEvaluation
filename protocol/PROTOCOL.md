@@ -182,9 +182,20 @@ E4 is a within-completion paired quantity while E1 to E3 are cross-completion U-
 They are reported in one table only with that difference stated in the caption, because they
 do not have the same sampling structure.
 
-**E5, declared-priority congruence.** For each completion and procedure, the fractional
+**E5a, declared-priority membership.** For each completion and procedure, the fractional
 top-three overlap between the three declared criteria and (a) the computed weight order and
-(b) the criterion-removal impact order.
+(b) the criterion-removal impact order. This answers whether the respondent named the
+criteria the computation also places on top.
+
+**E5b, declared-priority order.** The respondent returns its three priorities from most to
+least important, and E5a discards that order. E5b measures it. Restrict both the declared
+list and the computed order to the three declared criteria, which leaves three unordered
+pairs, and apply the same generalized Kendall distance section 6 uses for rankings: a pair
+contributes zero when the two orders agree, one half when one order ties the pair while the
+other separates it, one when they are opposite, and the sum is divided by three. Reported
+beside E5a and never folded into it, so that agreement on which criteria and agreement on
+their order stay separable. Where the computed order ties two of the three declared criteria,
+the half-credit branch applies and no arbitrary break is made.
 
 ## 7. Interactions and the diagonal
 

@@ -261,6 +261,29 @@ the operative prompt and schema were fixed at commit 17a03dd at 04:37:48 UTC on 
 
 Data affected: none.
 
+## 2026-08-27, declared-priority order added as estimand E5b
+
+Estimand E5 measured fractional top-three overlap, which is set membership. The elicitation
+contract asks for three criterion codes "from most to least important", so the order is
+collected on every completion and E5 discarded it. Two completions declaring the same three
+criteria in opposite orders scored identically.
+
+E5 is renamed E5a and E5b is added beside it: the same generalized Kendall distance the
+protocol already defines, restricted to the three declared criteria, which gives three pairs.
+The two are reported separately so that agreement on which criteria and agreement on their
+order do not collapse into one number.
+
+Why this form. Per-rank weights would need three constants this design cannot defend, and a
+rank-biased overlap would add a parameter and a statistic the study does not otherwise use.
+Restricting an existing measure adds neither.
+
+Data affected: none. E5b defines an analysis over data already collected. It changes no
+prompt, no schema, no criterion, no matrix value and no scheduling rule, and the analysis
+layer is not yet written. Recorded before rounds 2 and 3 so the definition is fixed before
+the data it will run on exists.
+
+Raised in peer review of the manuscript.
+
 ## Open before the first call
 
 - Domain review of the criterion definitions, units and values is outstanding.
