@@ -1,0 +1,34 @@
+{
+  "upload_type": "software",
+  "title": "AgenticMCDMEvaluation: protocol, stimulus material and computation layer for separating persona-card, model-service and MCDM method effects",
+  "version": "0.2.0",
+  "license": "cc-by-4.0",
+  "creators": [
+    {
+      "name": "Ozpinar, Alper",
+      "affiliation": "Ibn Haldun University, School of Business, Istanbul, Turkiye",
+      "orcid": "0000-0003-1250-5949"
+    },
+    {
+      "name": "Samasti, Mesut",
+      "affiliation": "TUBITAK Tusside, Kocaeli, Turkiye"
+    },
+    {
+      "name": "Cakmak, Emre",
+      "affiliation": "Istinye University, Faculty of Engineering and Natural Sciences, Istanbul, Turkiye"
+    }
+  ],
+  "description": "<p>Registered material for a study protocol that separates four sources of ranking divergence in a hybrid large-language-model and multi-criteria decision-making pipeline: the persona-card condition, the hosted model-service condition, the ranking procedure, and repeated execution of one byte-identical user-controlled payload.</p><p>The archive carries the protocol, the criterion definitions and the fixed performance matrix, the card and response schemas, the generation and decision prompts, the fifteen frozen persona cards with their hashes, the run registry naming the five hosted service configurations, the computation layer (row-geometric-mean AHP weighting, EDAS, TOPSIS), the stochastic weight-space screening report, the deviation log and the run ledgers.</p><p>Collection had begun when this version was deposited. The deposit fixes the state of every input from its date onward; it does not constitute a preregistration, and the deviation log records every change made after the initial protocol.</p><p>Licensing is dual and deliberate. Code under src/ and tests/ is MIT. Material under protocol/, prompts/, schemas/ and results/ is Creative Commons Attribution 4.0 International, which is the licence recorded on this record because the material is what the accompanying paper cites.</p>",
+  "keywords": [
+    "multi-criteria decision making",
+    "analytic hierarchy process",
+    "EDAS",
+    "TOPSIS",
+    "large language models",
+    "persona conditioning",
+    "study protocol",
+    "reproducibility",
+    "decision trace"
+  ],
+  "access_right": "open"
+}

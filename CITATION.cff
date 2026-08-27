@@ -9,13 +9,16 @@ authors:
     given-names: Alper
     affiliation: Ibn Haldun University, School of Business
     email: alper.ozpinar@ihu.edu.tr
+    orcid: "https://orcid.org/0000-0003-1250-5949"
   - family-names: Samasti
     given-names: Mesut
     affiliation: TUBITAK Tusside
   - family-names: Cakmak
     given-names: Emre
     affiliation: Istinye University, Faculty of Engineering and Natural Sciences
-license: MIT
+license:
+  - MIT
+  - CC-BY-4.0
 repository-code: https://github.com/alperozpinar/AgenticMCDMEvaluation
-version: 0.1.0
-date-released: "2026-08-05"
+version: 0.2.0
+date-released: "2026-08-27"

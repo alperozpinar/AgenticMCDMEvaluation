@@ -95,6 +95,16 @@ renamed, made private or deleted. Connect Zenodo to this repository and cut a re
 mints a versioned DOI. Then record that DOI in the manuscript, in `CITATION.cff` and in
 `protocol/DEVIATIONS.md`.
 
+Preparation is done; the remaining steps need the operator's Zenodo account. See
+`ZENODO_CHECKLIST.md` for the order, which matters: Zenodo archives only releases created
+after the per-repository switch is enabled, so enabling it after cutting the release archives
+nothing. `.zenodo.json` and `CITATION.cff` are ready so the record does not fall back to
+GitHub metadata, and `RELEASE_v0.2.0.md` is the release body.
+
+Note that `v0.1.0` tags commit `ba639f1`, the initial protocol of 5 August 2026. It predates
+the registry, the frozen cards, the schedule and the operative prompt version, so it is not
+the state that governs the collected data. `v0.2.0` is.
+
 ### 6. Run the pilot
 
 The schedule is frozen under seed 20260805: 375 slots, 75 per round, and the pilot is the CFO
