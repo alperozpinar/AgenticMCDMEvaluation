@@ -100,6 +100,12 @@ would let time move together with a factor.
   calendar days, so the measured quantity is short-to-medium term service variability rather
   than variability within a single minute. The realized spacing is reported.
 - Providers are interleaved within a round rather than run in provider blocks.
+- A round covers all three roles and the randomization is over the whole round, so a
+  role's slots are scattered through it rather than grouped. When a round is collected for
+  one role alone, which is what the pilot does, that role's slots are issued in the
+  relative order the round's randomization gave them, and the remaining roles follow in a
+  later pass with their own relative order likewise preserved. Role order is therefore
+  blocked at the level of execution passes while the within-round order stays randomized.
 - A transport failure with no model output is retried once in the same slot; both physical
   requests are kept. A schema failure is not a transport failure and is never retried.
 - If a provider snapshot changes during collection, that provider's block stops. Completed

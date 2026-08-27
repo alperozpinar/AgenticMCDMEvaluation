@@ -317,6 +317,23 @@ arithmetic that summarised it was wrong.
 
 Data affected: none. Raised in an independent read of the manuscript.
 
+## 2026-08-27, how a role-restricted pass relates to the round order, made explicit
+
+Section 3 said the execution order inside a round is randomized once before collection, and
+section 6 of the manuscript says the pilot collects the CFO role first. Neither said how the
+two fit together, and a reader could reasonably conclude that a randomized round order rules
+out collecting one role ahead of the others.
+
+No rule changed and no slot moved. What the frozen schedule and the ledger already show is
+now written down: `run/run_schedule.csv` assigns positions across the whole round, so round 1
+holds twenty-five slots for each of the three roles scattered between positions 1 and 75, and
+`data/ledger.csv` records the twenty-five retained CFO completions at scheduled positions 2,
+5, 7 through 74 in strictly increasing order. So the randomization is over the round and a
+role-restricted pass preserves the relative order it assigned.
+
+Data affected: none. This is a specification of existing behaviour, verified against the
+released schedule and ledger. Raised in an independent read of the manuscript.
+
 ## Open before the first call
 
 - Domain review of the criterion definitions, units and values is outstanding.
