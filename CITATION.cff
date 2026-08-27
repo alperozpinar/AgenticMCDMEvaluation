@@ -19,6 +19,7 @@ authors:
 license:
   - MIT
   - CC-BY-4.0
+doi: "10.5281/zenodo.22125066"
 repository-code: https://github.com/alperozpinar/AgenticMCDMEvaluation
 version: 0.2.0
 date-released: "2026-08-27"

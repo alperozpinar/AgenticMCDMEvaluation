@@ -241,7 +241,26 @@ Data affected: none. The condition was added and withdrawn without any round run
 it, and it never changed a prompt, a schema, a criterion, a matrix value or a scheduling
 rule.
 
+## 2026-08-27, archival deposit made
+
+Release v0.2.0 at commit 984b522 is deposited with Zenodo. Version DOI
+10.5281/zenodo.22125066; concept DOI 10.5281/zenodo.22125065, which always resolves to the
+newest version.
+
+What this closes. v0.1.0 tagged the initial protocol of 5 August 2026 at commit ba639f1,
+which predates the model registry, the frozen cards, the collection schedule and the
+operative prompt version. Until now no archived identifier covered the state that governs the
+collected data. It does now.
+
+What this does not do. The deposit follows the start of collection, so it is not a
+preregistration and the study is not a registered report. It fixes the state of every input
+from 27 August 2026 onward and makes that state citable and tamper evident, which a git
+repository on its own cannot be. The ordering before that date rests on the commit history:
+the operative prompt and schema were fixed at commit 17a03dd at 04:37:48 UTC on 8 August
+2026, and the twenty-five retained completions were collected from 04:39:07 UTC the same day.
+
+Data affected: none.
+
 ## Open before the first call
 
 - Domain review of the criterion definitions, units and values is outstanding.
-- The archived release and its versioned DOI have not been created.
