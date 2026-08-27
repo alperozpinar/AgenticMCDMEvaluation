@@ -220,6 +220,27 @@ transition period whose end date that document does not give. The registry recor
 provider-exposed dated snapshot for any of the five services, so no per-service claim is made
 here or in the manuscript.
 
+## 2026-08-27, the seventh warning condition is withdrawn
+
+The entry of 2026-08-13 added a seventh warning condition for a provider beginning or
+altering machine-readable marking of its generated text during collection. It is withdrawn
+and section 11 returns to six conditions.
+
+Why. A deterministic warning has to be evaluable from what a run records. An imperceptible
+text watermark is not detectable from an API response without a provider detection tool, and
+no such tool was available for these five services during collection, so the condition could
+never fire and could never be shown not to have fired. Peer review raised this before any
+further round ran.
+
+Where it goes instead. The manuscript states it in the limitations: marking sits inside the
+hosted service condition, it acts at decoding time, and whether it was active for a given
+call is not established. The ledger stores every raw response, so the question can be
+answered retrospectively if a detection tool is released.
+
+Data affected: none. The condition was added and withdrawn without any round running under
+it, and it never changed a prompt, a schema, a criterion, a matrix value or a scheduling
+rule.
+
 ## Open before the first call
 
 - Domain review of the criterion definitions, units and values is outstanding.

@@ -283,10 +283,7 @@ A warning record is emitted when:
 - fewer than four of the five completions in a full cell share the modal winner set, stated
   as a count because five completions admit only five proportions;
 - the first semantic response fails the schema, or a repair is used;
-- a provider snapshot changes during collection;
-- a provider begins or alters machine-readable marking of its generated text during
-  collection, which a snapshot check does not catch because the snapshot identifier need
-  not change with it;
+- a provider announces a change to its service configuration during collection;
 - the withheld dominated alternative outranks its dominator, which is a software fault.
 
 The three appraisal-gap values are reported together rather than as one threshold, because
